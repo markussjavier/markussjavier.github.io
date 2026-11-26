@@ -1,0 +1,143 @@
+/* =====================================================
+   about.css — styles only for the About me page
+   (uses the same 12-column grid as the Figma design)
+   ===================================================== */
+
+.grid-12 { display: grid; grid-template-columns: repeat(12, 1fr); column-gap: var(--grid-gap); }
+
+/* ---- Photo + intro ---- */
+.about-intro { margin-top: 77px; align-items: start; }
+.about-intro__photo { grid-column: 1 / span 4; width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; }
+.about-intro__text {
+  grid-column: 6 / -1; margin-top: 29px;
+  font-family: var(--font-title); font-weight: 700; font-size: 32px; line-height: 32px;
+  letter-spacing: var(--ls-heading); color: var(--text-title);
+}
+.about-intro__text p + p { margin-top: 24px; }
+
+/* ---- Sections ---- */
+.section { margin-top: 32px; }
+.section--first { margin-top: 64px; }
+.section > .title { margin: 0; }
+.section .section__body { margin-top: 34px; }
+.empty-note { margin-top: 35px; text-align: center; font-size: 14px; line-height: 21px; color: var(--text-primary); }
+.section--after-note { margin-top: 32px; }
+
+/* ---- Cards (events, prints, music) ---- */
+.cards-grid { list-style: none; margin: 0; padding: 0; }
+.cards-grid--events { row-gap: 35px; }
+.cards-grid--events > li { grid-column: span 4; }
+.cards-grid--wide { row-gap: 32px; }
+.cards-grid--wide > li { grid-column: span 6; }
+.info-card {
+  display: flex; flex-direction: column; height: 100%;
+  border: 1px solid var(--text-title); color: var(--text-title); text-decoration: none;
+  transition: border-color .15s ease;
+}
+.info-card img { display: block; width: 100%; height: auto; }
+.info-card--square img { aspect-ratio: 1; object-fit: cover; }
+.info-card__body { padding: 17px 15px 20px; }
+.meta { font-size: 16px; line-height: 16px; color: var(--text-title); }
+.meta--unavailable { color: #ff0000; }
+.card-title {
+  margin-top: 19px; font-family: var(--font-title); font-weight: 700; font-size: 32px; line-height: 32px;
+  letter-spacing: var(--ls-heading); color: var(--text-title); transition: color .15s ease;
+}
+.card-note { margin-top: 20px; font-size: 12px; line-height: 12px; color: var(--text-secondary); }
+@media (hover: hover) {
+  a.info-card:hover { border-color: var(--button); }
+  a.info-card:hover .card-title { color: var(--button); }
+}
+a.info-card:focus-visible { border-color: var(--button); }
+a.info-card:focus-visible .card-title { color: var(--button); }
+a.info-card:active { border-color: var(--button-pressed); }
+a.info-card, .video-tile { -webkit-tap-highlight-color: transparent; }
+
+/* ---- Prints: zoom into the artwork on mouse hover (js/print-zoom.js) ---- */
+.zoom-thumb--pan { position: relative; overflow: hidden; -webkit-tap-highlight-color: transparent; }
+.info-card .zoom-thumb img.pan {
+  position: absolute; top: 0; left: 0; width: 200%; max-width: none; height: auto;  /* 200% = ZOOM in print-zoom.js */
+  visibility: hidden; opacity: 0; pointer-events: none;
+}
+.info-card .zoom-thumb.is-panning img.pan { visibility: visible; opacity: 1; }
+@media (prefers-reduced-motion: no-preference) {
+  .info-card .zoom-thumb.is-panning img.pan { transition: opacity .15s ease; }
+}
+
+/* ---- Call-to-action boxes ---- */
+.cta {
+  margin-top: 32px; min-height: 155px; padding: 23px 24px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+  border: 1px solid var(--text-title); color: var(--text-title); font-size: 16px; line-height: 24px;
+}
+.cta .btn { margin-top: 18px; }
+.cta--compact { min-height: 0; }
+
+/* ---- Tattoo flashes: two sets, each = one big drawing + six small ones ---- */
+.flash-sets { row-gap: 32px; }
+.flash-set { grid-column: span 6; display: grid; row-gap: 35px; align-content: start; }
+.flash-set img { display: block; width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; }
+.flash-small { display: grid; grid-template-columns: repeat(3, 1fr); gap: 35px; }
+
+/* ---- Video edits ---- */
+.videos { list-style: none; margin: 0; padding: 0; row-gap: 35px; }
+.videos > li { grid-column: span 3; }
+.video-tile { display: block; box-shadow: 0 0 0 2px transparent; transition: box-shadow .15s ease; }
+.video-tile img { display: block; width: 100%; height: auto; }
+
+/* hover preview frames, stacked on top of the thumbnail (js/video-preview.js) */
+.video-tile { position: relative; }
+.video-tile img.video-tile__frame {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;
+  visibility: hidden; pointer-events: none;
+}
+.video-tile img.video-tile__frame.is-showing { visibility: visible; }
+@media (hover: hover) { .video-tile:hover { box-shadow: 0 0 0 2px var(--button); } }
+.video-tile:focus-visible { box-shadow: 0 0 0 2px var(--button); }
+.video-tile:active { box-shadow: 0 0 0 2px var(--button-pressed); }
+
+.page-about .site-footer { margin-top: 30px; padding-bottom: 82px; }
+
+/* ---- Phones ---- */
+@media (max-width: 767px) {
+  .page-about .site-header { margin-top: 28px; }
+  .about-intro { margin-top: 31px; display: block; }
+  .about-intro__photo { display: block; }
+  .about-intro__text { margin-top: 29px; font-size: 24px; line-height: 24px; }
+  .section--first { margin-top: 35px; }
+  .section .section__body { margin-top: 31px; }
+  .empty-note { margin-top: 34px; text-align: left; }
+  .section--after-note { margin-top: 32px; }
+
+  .cards-grid { display: grid; }
+  .cards-grid--events { grid-template-columns: repeat(2, 1fr); column-gap: 10px; row-gap: 12px; }
+  .cards-grid--events > li { grid-column: auto; }
+  .cards-grid--wide { grid-template-columns: 1fr; row-gap: 32px; }
+  .cards-grid--wide > li { grid-column: auto; }
+  .info-card__body { padding: 17px 8px 16px; }
+  .cards-grid--events .info-card__body { padding: 9px 8px 8px; }
+  .cards-grid--events .card-note { max-width: 100px; }
+  .meta { font-size: 10px; line-height: 10px; }
+  .card-title { margin-top: 10px; font-size: 16px; line-height: 16px; }
+  .card-note { margin-top: 10px; font-size: 10px; line-height: 13px; }
+
+  .cta { min-height: 0; font-size: 14px; line-height: 21px; }
+  .cta .btn { font-size: 12px; }
+
+  .flash-sets { display: grid; grid-template-columns: 1fr; row-gap: 32px; }
+  .flash-set { grid-column: auto; row-gap: 10px; }
+  .flash-small { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+
+  .videos { grid-template-columns: repeat(2, 1fr); column-gap: 10px; row-gap: 10px; }
+  .videos > li { grid-column: auto; }
+  .video-tile img { aspect-ratio: 140 / 189.5; object-fit: cover; }
+
+  /* small spacing tweaks so every block lines up with the mobile design */
+  #prints .section__body { margin-top: 33px; }
+  #prints .cta { margin-top: 33px; }
+  #tattoo { margin-top: 33px; }
+  #music { margin-top: 33px; }
+  #music .section__body { margin-top: 32px; }
+  #video { margin-top: 34px; }
+  .page-about .site-footer { margin-top: 33px; padding-bottom: 87px; }
+}

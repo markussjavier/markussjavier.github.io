@@ -1,0 +1,119 @@
+/* =====================================================
+   landing.css — styles only for the landing page (index.html)
+   ===================================================== */
+
+.hero { display: flex; flex-direction: column; align-items: center; text-align: center; }
+
+/* ---- Hero drawing + magnifier ---- */
+.hero-logo { position: relative; width: 535px; height: 207px; margin-top: 87px; }
+.hero-logo img { width: 100%; height: 100%; }
+.lens {
+  position: absolute; top: 0; left: 0; z-index: 2;
+  width: 160px; height: 160px; border-radius: 50%;
+  background-color: var(--bg);
+  background-image: url("../assets/images/hero-logo.svg");
+  background-repeat: no-repeat;
+  pointer-events: none; opacity: 0;
+  transition: opacity .15s ease;
+}
+.hero-logo.is-hovering .lens { opacity: 1; }
+
+.hero .title { margin-top: 35px; }
+.hero .title .br-desktop { display: inline; }
+/* Tablets: the headline shrinks a little so it keeps the desktop's two lines */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .hero .title { font-size: clamp(52px, 7.75vw - 6.2px, 64px); }
+}
+.intro {
+  max-width: 490px; margin-top: 18px;
+  font-size: 14px; line-height: 21px; color: var(--text-primary);
+}
+
+/* ---- Client logos (looping row) ---- */
+.logos {
+  margin-top: 38px; overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+          mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+}
+.logos__track { display: flex; width: max-content; }
+.logos__set { display: flex; align-items: center; flex: none; }
+.logos__set img { flex: none; margin-right: 31px; }
+.logos.is-ready .logos__track { animation: logos-scroll 28s linear infinite; }
+@media (hover: hover) { .logos.is-ready:hover .logos__track { animation-play-state: paused; } }
+.logos.is-ready:active .logos__track { animation-play-state: paused; }   /* on phones: pauses while your finger holds it */
+@keyframes logos-scroll { to { transform: translateX(-50%); } }
+
+/* ---- Navigation cards ---- */
+.cards { display: grid; grid-template-columns: 1fr 1fr; gap: var(--grid-gap); margin-top: 41px; }
+.card {
+  position: relative; display: block; aspect-ratio: 1 / 1; overflow: hidden;
+  background: var(--bg); color: var(--text-title); text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.card__head {
+  position: absolute; z-index: 2; top: 30px; left: 30px; right: 24px; height: 24px;
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: 16px; line-height: 24px;
+}
+.card__head img { width: 24px; height: 24px; transform: scaleX(-1); }   /* the icon file points left; the cards need it pointing right */
+.card__art {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  opacity: 0; transition: opacity .2s ease;
+}
+.card__art--default { opacity: 1; }
+@media (hover: hover) { .card:hover .card__art--hover { opacity: 1; } }
+.card:focus-visible .card__art--hover { opacity: 1; }
+.card:active .card__art--active { opacity: 1; transition-duration: .08s; }
+/* on touch screens, pressing shows the hover picture instead of the clicked one */
+@media (hover: none) {
+  .card:active .card__art--hover { opacity: 1; transition-duration: .08s; }
+  .card:active .card__art--active { opacity: 0; }
+}
+/* the arrow slides 4px on mouse hover, keyboard selection or while pressed.
+   Skipped completely when "reduce motion" is on. */
+@media (prefers-reduced-motion: no-preference) {
+  .card__head img { transition: transform .2s ease; }
+  .card:focus-visible .card__head img, .card:active .card__head img { transform: translateX(4px) scaleX(-1); }
+}
+@media (prefers-reduced-motion: no-preference) and (hover: hover) {
+  .card:hover .card__head img { transform: translateX(4px) scaleX(-1); }
+}
+/* the white outline sits on top of every picture */
+.card::after {
+  content: ""; position: absolute; inset: 0; z-index: 3; pointer-events: none;
+  box-shadow: inset 0 0 0 2px #fff;
+}
+
+/* ---- Phones ---- */
+@media (max-width: 767px) {
+  /* the drawing is shrunk to 72% and its labels are spaced like your mobile design */
+  .hero-logo { width: 100%; height: 148px; margin-top: 31px; overflow: hidden; }
+  .hero-logo img { position: absolute; top: 0; left: calc(50% - 191px); width: 383.5px; max-width: none; height: 148.4px; }
+  .lens { display: none; }
+  .hero .title { align-self: stretch; margin-top: 32px; text-align: left; line-height: 39.5px; }
+  .hero .title .br-desktop { display: none; }
+  .intro { align-self: stretch; max-width: none; margin-top: 18px; text-align: left; }
+  /* on phones the logo row starts at the left margin and runs off the right edge */
+  /* (on large phones it starts and ends with the 480px column: 450px + 15px) */
+  .logos-section { width: min(465px, 100% - var(--page-margin)); margin-left: max(var(--page-margin), (100% - 450px) / 2); margin-right: 0; }
+  .logos { margin-top: 29px; -webkit-mask-image: none; mask-image: none; }
+  .cards { grid-template-columns: 1fr; gap: 32px; margin-top: 33px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .logos.is-ready .logos__track { animation: none; }
+  /* the row stays still: show the logos once, and let it scroll sideways if any are cut off */
+  .logos {
+    overflow-x: auto; overscroll-behavior-x: contain;
+    scrollbar-width: thin; scrollbar-color: #505050 transparent;
+    -webkit-mask-image: none; mask-image: none;
+  }
+  .logos:focus-visible { outline-offset: -2px; }
+  .logos__set[aria-hidden="true"] { display: none; }
+  .logos__set img { margin-right: 30px; }
+  .logos__set img:last-child { margin-right: 0; }
+  .card__art { transition: none; }
+}
+/* on phones, leave a margin after the last logo when you swipe to the end */
+@media (prefers-reduced-motion: reduce) and (max-width: 767px) {
+  .logos__set img:last-child { margin-right: var(--page-margin); }
+}

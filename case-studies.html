@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LoanMatcha — Case studies — Markuss Javier</title>
+  <meta name="description" content="Case studies by Markuss Javier, product designer and visual artist.">
+
+  <!-- Link preview: the picture and text shown when someone shares this page -->
+  <meta property="og:url" content="https://markussjavier.com/case-studies.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Markuss Javier">
+  <meta property="og:title" content="Case studies — Markuss Javier">
+  <meta property="og:description" content="Case studies by Markuss Javier, product designer and visual artist.">
+  <meta property="og:image" content="https://markussjavier.com/assets/images/social-sharing.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="600">
+  <meta property="og:image:alt" content="Markuss logo with the words Product Designer, Visual Artist, Drummer and Friend">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/case-studies.css">
+  <link rel="stylesheet" href="css/enlarge.css">
+</head>
+<body>
+
+  <!-- ===== Fixed top bar: Back + tabs ===== -->
+  <header class="cs-header">
+    <div class="container cs-header__inner">
+      <a class="back" href="index.html">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.5L20.9 12.5L19.983 12.4803C18.8477 12.4558 17.9853 12.4245 17.396 12.3863L16.92 12.3554L16.444 12.3246C15.8547 12.2864 15.2653 12.321 14.676 12.4284L14.2 12.5151L13.724 12.6019C13.1347 12.7093 12.5453 12.685 11.956 12.5291L11.48 12.4031L11.004 12.2771C10.4147 12.1212 9.82533 12.0796 9.236 12.1525L8.76 12.2113L8.284 12.2701C7.69467 12.343 7.10533 12.3863 6.516 12.4002L6.04 12.4113L5.564 12.4225C4.97467 12.4364 4.498 12.4131 4.134 12.3527L3.84 12.304L3.546 12.2552C3.182 12.1948 3 12.2009 3 12.2736L3 12.3323L3.1 12.5L3 12.5M9.5 19L9.42929 18.9293L8.95951 18.8105L8.77034 18.7441C8.53613 18.662 8.23922 18.384 7.8796 17.9102L7.58913 17.5275L7.29867 17.1448C6.93905 16.671 6.5546 16.222 6.14532 15.7978L5.81475 15.4552L5.48418 15.1126C5.0749 14.6885 4.48036 14.0635 3.70055 13.2377L3.07071 12.5707L3 12.5L3.07071 12.4293L3.70518 11.7669C4.49071 10.9468 5.12004 10.3567 5.59317 9.99635L5.97532 9.70533L6.35747 9.41431C6.8306 9.054 7.28633 8.67629 7.72466 8.28117L8.07869 7.96203L8.43272 7.6429C8.87104 7.24778 9.1346 6.93644 9.22339 6.7089L9.2951 6.52511L9.42929 6.07071L9.5 6"/></svg>
+        <span>Back</span>
+      </a>
+
+      <nav class="cs-tabs" role="tablist" aria-label="Case studies">
+        <a class="cs-tab" role="tab" id="tab-loanmatcha" href="#loanmatcha" data-tab="loanmatcha" aria-controls="panel-loanmatcha">LoanMatcha</a>
+        <a class="cs-tab" role="tab" id="tab-sel"        href="#sel"        data-tab="sel"        aria-controls="panel-sel">SEL</a>
+        <a class="cs-tab" role="tab" id="tab-santi"      href="#santi"      data-tab="santi"      aria-controls="panel-santi">Santi</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- =====================================================
+         TAB 1: LOANMATCHA
+         ===================================================== -->
+    <div class="cs-panel" role="tabpanel" id="panel-loanmatcha" aria-labelledby="tab-loanmatcha">
+      <!-- Opening #sel or #santi directly: hide this first tab right away, so its pictures don't download -->
+      <script>if (/^#(sel|santi)$/.test(location.hash)) { document.getElementById('panel-loanmatcha').hidden = true; }</script>
+
+      <!-- Section 1: Hero -->
+      <section class="cs-section cs-hero" id="lm-hero">
+        <div class="container cs-hero__grid">
+          <div class="cs-hero__text">
+            <h1 class="title title--xl cs-title">What’s a better way to move money?</h1>
+            <p class="cs-hero__lead">I shaped LoanMatcha from the ground up, building a connected lending ecosystem that simplifies borrowing and unlocks collaborative funding opportunities.</p>
+            <ul class="pills" aria-label="My role">
+              <li class="pill">Research</li>
+              <li class="pill">UI/UX Design</li>
+              <li class="pill">Project Management</li>
+              <li class="pill pill--active">Testing</li>
+            </ul>
+          </div>
+
+          <!-- Hero artwork: phone with "You're approved!" and "Whisking in progress!" stickers -->
+          <figure class="media cs-hero__art" data-label="Hero artwork">
+            <img src="assets/images/case-studies/loanmatcha/loanmatcha-01-hero.webp" width="1110" height="1186" loading="lazy" alt="LoanMatcha mobile app home screen with approval and in-progress stickers" onerror="this.remove()">
+          </figure>
+        </div>
+      </section>
+
+      <!-- Section 2: Project facts -->
+      <section class="cs-section cs-facts" id="lm-facts" aria-label="Project details">
+        <div class="container">
+          <dl class="facts">
+            <div class="facts__item facts__item--year">
+              <dt>Year</dt>
+              <dd>2026</dd>
+            </div>
+            <div class="facts__item facts__item--timeline">
+              <dt>Timeline</dt>
+              <dd>5 months</dd>
+            </div>
+            <div class="facts__item facts__item--industry">
+              <dt>Industry</dt>
+              <dd>Fintech</dd>
+            </div>
+            <div class="facts__item facts__item--company">
+              <dt>Company</dt>
+              <dd>Infinite Ventures Lending Corporation PH</dd>
+            </div>
+            <div class="facts__item facts__item--team">
+              <dt>Team</dt>
+              <dd>2 Product Designers (Fyn &amp; Markuss), 3 Developers, 2 Project Managers</dd>
+            </div>
+            <div class="facts__item facts__item--tools">
+              <dt>Tools</dt>
+              <dd>Figma, Infobip</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <!-- Section 3: Setup -->
+      <section class="cs-section cs-split" id="lm-setup">
+        <div class="container cs-split__grid">
+          <figure class="media cs-split__art" data-label="Application form with messaging app icons">
+            <img src="assets/images/case-studies/loanmatcha/loanmatcha-02-setup.webp" width="1072" height="690" loading="lazy" alt="Sketch of a loan application form surrounded by messaging app icons: phone call, Facebook, Messenger and Discord" onerror="this.remove()">
+          </figure>
+
+          <div class="cs-split__text">
+            <p class="eyebrow">Setup</p>
+            <h2 class="title cs-heading">Lending is getting complicated.</h2>
+            <p>Borrowers rely on scattered channels to find loan information, submit requirements, and follow up on their applications.</p>
+            <p>Behind the scenes, manual coordination and repetitive tasks make the process increasingly demanding.</p>
+            <p>Our goal is to bring the experience all together.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 4: Investigation -->
+      <section class="cs-section cs-split cs-split--investigation" id="lm-investigation">
+        <div class="container cs-split__grid">
+          <div class="cs-split__text">
+            <p class="eyebrow">Investigation</p>
+            <h2 class="title cs-heading">Before designing the solution, we need to understand the problem...s</h2>
+            <p>Upon examining IVPH's existing operations by doing an empathy mapping session, we’re able to group our observations into five areas:</p>
+            <ul class="areas">
+              <li>Process <em class="c-blue">[“What happens next?”]</em></li>
+              <li>Communication <em class="c-pink">[Was it on Viber or Discord?]</em></li>
+              <li>Efficiency <em class="c-green">[Why is there so much back and forth?]</em></li>
+              <li>Agency <em class="c-pink">[Am I in a position to approve this?]</em></li>
+              <li>Design <em class="c-green">[There’s so much going on in this page.]</em></li>
+            </ul>
+            <p>This helps us identify recurring challenges and opportunities across the lending experience, on both the borrower and admin sides.</p>
+            <p class="areas-note">[<span class="c-green">These</span> <span class="c-pink">three</span> <span class="c-blue">colors</span> will make sense later on.]</p>
+          </div>
+
+          <figure class="media cs-split__art" data-label="Empathy mapping session photos" data-zoom-group="lm-investigation">
+            <img src="assets/images/case-studies/loanmatcha/loanmatcha-03-investigation.webp" width="1070" height="1074" loading="lazy" alt="Sticky notes on a window and two empathy map boards from the empathy mapping session" onerror="this.remove()">
+          </figure>
+        </div>
+      </section>
+
+      <!-- Section 5: Card sorting + Journey mapping (two columns) -->
+      <section class="cs-section cs-duo" id="lm-process">
+        <div class="container cs-duo__grid">
+          <article class="cs-duo__item cs-duo__item--left">
+            <p class="eyebrow">Card sorting</p>
+            <figure class="media cs-duo__art" data-label="Card sorting" data-zoom-group="lm-process">
+              <img src="assets/images/case-studies/loanmatcha/loanmatcha-04-cardsorting.webp" width="888" height="672" loading="lazy" alt="Sticky notes sorted on a wall between Easy and Difficult implementation" onerror="this.remove()">
+            </figure>
+            <p>We sort (again) the cards into those five areas, allowing me &amp; Fyn to synthesize similar ideas to be able to facilitate an affinity mapping activity with the team. I co-PM the project with the CEO herself, which to us designers is ideal because we’re able to soundly assess technical complexity to tango with the stakeholders’ timelines.</p>
+          </article>
+
+          <article class="cs-duo__item cs-duo__item--right">
+            <p class="eyebrow">Journey mapping</p>
+            <figure class="media cs-duo__art" data-label="Journey mapping" data-zoom-group="lm-process">
+              <img src="assets/images/case-studies/loanmatcha/loanmatcha-05-journeymapping.webp" width="888" height="672" loading="lazy" alt="Video call screenshot of the team mapping the lending journey on a shared whiteboard" onerror="this.remove()">
+            </figure>
+            <p>Behind the scenes, Fyn maps out IVPH’s current end-to-end lending process so we’re able to propose a new one, with the new LoanMatcha app in mind. All this card-sorting work equips us with a robust list of deliverables to help me calibrate the design process and plan a product roadmap.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Section 6: Guiding light (six steps + "get in touch" box) -->
+      <section class="cs-section cs-steps" id="lm-guiding">
+        <div class="container">
+          <p class="eyebrow">Guiding light</p>
+          <div class="steps__grid">
+            <article class="step">
+              <span class="step__num">I</span>
+              <figure class="media step__art" data-label="Step I" data-zoom-group="lm-guiding">
+                <img src="assets/images/case-studies/loanmatcha/loanmatcha-06-userpersona.webp" width="690" height="521" loading="lazy" alt="Sketch-style user personas for the admin and the borrower" onerror="this.remove()">
+              </figure>
+              <p>Building user personas for both admin and user is easy because Aljohn, IVPH’s loan manager, handles communications directly.</p>
+            </article>
+            <article class="step">
+              <span class="step__num">II</span>
+              <figure class="media step__art" data-label="Step II" data-zoom-group="lm-guiding">
+                <img src="assets/images/case-studies/loanmatcha/loanmatcha-07-moodboard.webp" width="690" height="521" loading="lazy" alt="Brand discovery exercise board with the CEO" onerror="this.remove()">
+              </figure>
+              <p>I facilitate a brand discovery exercise with Shayne (CEO) so we get a good idea of what the product will look and feel like.</p>
+            </article>
+            <article class="step">
+              <span class="step__num">III</span>
+              <figure class="media step__art" data-label="Step III" data-zoom-group="lm-guiding">
+                <img src="assets/images/case-studies/loanmatcha/loanmatcha-08-stylescape.webp" width="690" height="521" loading="lazy" alt="Two stylescape options for the LoanMatcha brand" onerror="this.remove()">
+              </figure>
+              <p>After a fun moodboarding activity with the team, I’m able to draft stylescapes for us to decide which design path to take on.</p>
+            </article>
+            <article class="step">
+              <span class="step__num">IV</span>
+              <figure class="media step__art" data-label="Step IV" data-zoom-group="lm-guiding">
+                <img src="assets/images/case-studies/loanmatcha/loanmatcha-09-sitemap.webp" width="690" height="521" loading="lazy" alt="Sitemap of the LoanMatcha platform" onerror="this.remove()">
+              </figure>
+              <p>Fyn and I conduct a series of process discovery sessions to better understand their workflow. With this, I’m able to put up sitemaps.</p>
+            </article>
+            <article class="step">
+              <span class="step__num">V</span>
+              <figure class="media step__art" data-label="Step V" data-zoom-group="lm-guiding">
+                <img src="assets/images/case-studies/loanmatcha/loanmatcha-10-featurelist.webp" width="690" height="522" loading="lazy" alt="Feature list with priorities" onerror="this.remove()">
+              </figure>
+              <p>Having sitemaps then makes it easier for me to propose a feature list that aligns with the priorities we’ve identified from the affinity map.</p>
+            </article>
+            <article class="step">
+              <span class="step__num">VI</span>
+              <figure class="media step__art" data-label="Step VI" data-zoom-group="lm-guiding">
+                <img src="assets/images/case-studies/loanmatcha/loanmatcha-11-flowchart.webp" width="690" height="521" loading="lazy" alt="Flowcharts for the main user flows" onerror="this.remove()">
+              </figure>
+              <p>Upon alignment with stakeholders, I then draft flowcharts to serve as a guide for the wireframes we’ll build later on.</p>
+            </article>
+          </div>
+
+          <div class="callout">
+            <p>I purposefully laid out these photos to be less legible.<br class="only-desktop"> If you’re eager to see more of it, let’s get in touch.</p>
+            <a class="btn" href="contact.html?from=loanmatcha">Get in touch, then</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 7: Direction -->
+      <section class="cs-section cs-direction" id="lm-direction">
+        <div class="container cs-direction__grid">
+          <div class="cs-direction__art">
+            <figure class="media" data-label="Low-fidelity wireframes">
+              <img src="assets/images/case-studies/loanmatcha/loanmatcha-12-direction.webp" width="1070" height="802" loading="lazy" alt="Low-fidelity wireframes of the investor, admin and borrower views" onerror="this.remove()">
+            </figure>
+            <p class="caption">Low-fidelity wireframes<br>(left to right: investor view, admin view, borrower view)</p>
+          </div>
+
+          <div class="cs-split__text">
+            <p class="eyebrow">Direction</p>
+            <h2 class="title cs-heading">Three sides of lending converged into one system.</h2>
+            <p>The whole discovery process leads us toward a centralized system with three dedicated experiences.</p>
+            <p><span class="c-green">For borrowers:</span> A clearer way to apply for and monitor loans.</p>
+            <p><span class="c-blue">For investors:</span> A more accessible way to deploy capital to participate in funding opportunities.</p>
+            <p><span class="c-pink">And for admins:</span> A centralized account management system to make communicating, monitoring, and approving more seamless.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 8: The borrower experience (three columns) + The pivot box -->
+      <section class="cs-section cs-borrower" id="lm-borrower">
+        <div class="container">
+          <p class="eyebrow">The borrower experience</p>
+          <div class="exp__grid">
+            <article class="exp">
+              <figure class="media exp__art" data-label="Getting verified" data-zoom-group="lm-borrower">
+                <img src="assets/images/case-studies/loanmatcha/loanmatcha-13-gettingverified.webp" width="690" height="800" loading="lazy" alt="Flowchart of the borrower onboarding and verification process" onerror="this.remove()">
+              </figure>
+              <p class="eyebrow eyebrow--muted">Getting verified</p>
+              <h3 class="title cs-subheading">We first filter who we want to partner with.</h3>
+              <p>Onboarding that includes a guided profile completion and verification experience helps borrowers provide the information they need to move forward. A more structured process means clearer expectations right from the start.</p>
+            </article>
+            <article class="exp">
+              <figure class="media exp__art" data-label="Applying for a loan" data-zoom-group="lm-borrower">
+                <img src="assets/images/case-studies/loanmatcha/loanmatcha-14-applying.webp" width="690" height="800" loading="lazy" alt="Loan application screens: choosing a loan amount and the borrower home screen" onerror="this.remove()">
+              </figure>
+              <p class="eyebrow eyebrow--muted">Applying for a loan</p>
+              <h3 class="title cs-subheading">Then we make borrowing feel more clear-cut.</h3>
+              <p>The experience should be flawless for both existing IVPH borrowers and people looking to apply for the first time. It’s imperative we design this having IVPH’s current workflow as the foundation so we’re not disrupting much of the process.</p>
+            </article>
+            <article class="exp">
+              <figure class="media exp__art" data-label="Keeping track" data-zoom-group="lm-borrower">
+                <img src="assets/images/case-studies/loanmatcha/loanmatcha-15-keepingtrack.webp" width="690" height="800" loading="lazy" alt="Loan application progress screen on a phone" onerror="this.remove()">
+              </figure>
+              <p class="eyebrow eyebrow--muted">Keeping track</p>
+              <h3 class="title cs-subheading">No more wondering where things stand.</h3>
+              <p>LoanMatcha brings loan-related information into one place. Borrowers can access their loan details, application info, repayment schedules, and transaction records — making it easier to stay informed throughout the process.</p>
+            </article>
+          </div>
+
+          <div class="pivot">
+            <p class="eyebrow">The pivot</p>
+            <p class="pivot__text">Publishing an app takes time. The stakeholders decide to pivot towards a web-based platform instead, prompting us to rebuild the whole process to accommodate different screen sizes.</p>
+            <figure class="media pivot__art" data-label="Web and mobile versions">
+              <img src="assets/images/case-studies/loanmatcha/loanmatcha-16-pivot.webp" width="1972" height="842" loading="lazy" alt="LoanMatcha home screen on desktop, tablet and phone" onerror="this.remove()">
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 9: The lending experience + The marketplace box -->
+      <section class="cs-section cs-lending" id="lm-lending">
+        <div class="container">
+          <div class="tc">
+            <figure class="media tc__art tc__art--right" data-label="Investor views" style="aspect-ratio: 1072 / 540;">
+              <img src="assets/images/case-studies/loanmatcha/loanmatcha-17-lending.webp" width="1072" height="540" loading="lazy" alt="Investor view wireframes on phone and desktop" onerror="this.remove()">
+            </figure>
+            <div class="cs-split__text tc__text tc__text--left">
+              <p class="eyebrow">The lending experience</p>
+              <h2 class="title cs-heading">Lending isn’t just about borrowing.</h2>
+              <p>How could investors have a more direct way to discover and participate in IVPH's funding opportunities? Through a dedicated investor experience, LoanMatcha extends the platform beyond the traditional borrower journey. So it’s kind of like a P2P loan marketplace.</p>
+            </div>
+          </div>
+
+          <div class="pivot pivot--spaced">
+            <p class="eyebrow">The marketplace</p>
+            <p class="pivot__text">Some loan opportunities exceed the standard amount allowed through conventional arrangements. With this considered, I design a marketplace experience where investors could discover these opportunities and personally express interest in funding them.</p>
+            <figure class="media pivot__art" data-label="Marketplace screens" style="aspect-ratio: 1972 / 1668;">
+              <img src="assets/images/case-studies/loanmatcha/loanmatcha-18-marketplace.webp" width="1972" height="1668" loading="lazy" alt="Investor app screens and the web Marketplace page with Matcha Tokens" onerror="this.remove()">
+            </figure>
+            <p class="pivot__text pivot__text--after">Since IVPH has a partnership program, I devise a new collaborative funding mechanism: Matcha Tokens. Investors could participate by calling dibs on special-case loan opportunities, creating another way to engage with the lending ecosystem.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 10: The other side + "...Almost" box -->
+      <section class="cs-section cs-otherside" id="lm-otherside">
+        <div class="container">
+          <div class="tc tc--center">
+            <div class="tc__art tc__art--left">
+              <figure class="media" data-label="Admin dashboard" style="aspect-ratio: 1072 / 770;">
+                <img src="assets/images/case-studies/loanmatcha/loanmatcha-19-otherside.webp" width="1072" height="770" loading="lazy" alt="LoanMatcha admin dashboard page" onerror="this.remove()">
+              </figure>
+              <p class="caption caption--narrow">High-fidelity mockup of LoanMatcha admin dashboard page</p>
+            </div>
+            <div class="cs-split__text tc__text tc__text--right">
+              <p class="eyebrow">The other side</p>
+              <h2 class="title cs-heading">Admins can now operate on just one platform.</h2>
+              <p>What ties this whole P2P experience together is the admin side of things.</p>
+              <p>Since the longest-running challenge for IVPH was the many channels they operate on, having a single source of truth alleviates almost all process, efficiency and communication problems the admins have been facing.</p>
+            </div>
+          </div>
+
+          <div class="pivot pivot--spaced">
+            <p class="eyebrow">...Almost</p>
+            <p class="pivot__text">I say “almost” because direct calls and messages still live in a separate channel. We agreed on using Infobip to outsource this part of the process.</p>
+            <figure class="media pivot__art" data-label="Chat feature screens" style="aspect-ratio: 1972 / 1298;" data-screens="Matcha Talk list of conversations|Matcha Talk assistant welcome screen|Matcha Talk chat with the loan manager" data-screens-size="1972x1298" data-screens-slices="0,598|687,598|1374,598" data-zoom-in>
+              <img src="assets/images/case-studies/loanmatcha/loanmatcha-20-almost.webp" width="1972" height="1298" loading="lazy" alt="Matcha Talk chat feature screens built with Infobip" onerror="this.remove()">
+            </figure>
+            <p class="pivot__text pivot__text--after">Fortunately, Infobip’s API allows me to design the chat feature to align with our current branding.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 11: Handoff -->
+      <section class="cs-section cs-handoff" id="lm-handoff">
+        <div class="container">
+          <p class="eyebrow">Handoff</p>
+          <p class="center-text">I make it a point where the developers would sigh in relief and say “I love this guy.”</p>
+          <figure class="media handoff__art" data-label="Handoff flow map" style="aspect-ratio: 2212 / 666;" data-zoom-group="lm-handoff">
+            <img src="assets/images/case-studies/loanmatcha/loanmatcha-21-handoff.webp" width="2212" height="666" loading="lazy" alt="Map of how each screen connects across platforms, showing loan status changes" onerror="this.remove()">
+          </figure>
+          <p class="center-text">To help them easily understand how one screen interacts with another across the different platforms, I map out each step of the process. The example above shows how the loan statuses change as the application gets reviewed by an account manager.</p>
+        </div>
+      </section>
+
+      <!-- Section 12: From discovery to implementation + closing box -->
+      <section class="cs-section cs-outro" id="lm-outro">
+        <div class="container">
+          <div class="tc tc--center">
+            <figure class="media tc__art tc__art--left outro__art" data-label="Final app with status cards" style="aspect-ratio: 1102 / 1106;">
+              <img src="assets/images/case-studies/loanmatcha/loanmatcha-22-implementation.webp" width="1102" height="1106" loading="lazy" alt="LoanMatcha home screen surrounded by loan application status cards" onerror="this.remove()">
+            </figure>
+            <div class="cs-split__text outro__text">
+              <h2 class="title cs-title-64">From discovery to<br class="br-desk"> implementation.</h2>
+              <p>What started as an exploration of operational challenges progressed into studies, user flows, wireframes, prototypes, and interface designs.</p>
+              <p>LoanMatcha is now undergoing QA testing as the team works toward bringing the experience to life.</p>
+              <p><span class="c-green">My takeaway:</span> careful planning and research really go a long way. Coming up with the actual designs has never been something I worry about; that part is easy when the building blocks are already stacked for everyone to climb up on.</p>
+            </div>
+          </div>
+
+          <div class="callout callout--narrow">
+            <p>This is my best attempt to tell you the story of how I navigated the project. If this inspired you to work with me, we should probably meet.</p>
+            <a class="btn" href="contact.html?from=loanmatcha">Get in touch</a>
+          </div>
+        </div>
+      </section>
+
+
+    </div>
+
+    <!-- =====================================================
+         TAB 2: SEL (built later)
+         ===================================================== -->
+    <div class="cs-panel" role="tabpanel" id="panel-sel" aria-labelledby="tab-sel" hidden>
+
+      <!-- Section 1: Hero -->
+      <section class="cs-section cs-hero" id="sel-hero">
+        <div class="container cs-hero__grid">
+          <div class="cs-hero__text">
+            <h1 class="title title--xl cs-title">Making room<br class="br-desk"> for more ways<br class="br-desk"> to learn</h1>
+            <p class="cs-hero__lead">Evolving Everyday Speech's Social Emotional Learning (SEL) platform to accommodate new grade levels, expanded learning materials, and a smoother experience for teachers and students.</p>
+            <ul class="pills" aria-label="My role">
+              <li class="pill">UI/UX Design</li>
+              <li class="pill">Visual Identity</li>
+              <li class="pill">Prototyping</li>
+            </ul>
+          </div>
+          <figure class="media cs-hero__art" data-label="Hero artwork">
+            <img src="assets/images/case-studies/sel/sel-01-hero.webp" width="1224" height="1130" loading="lazy" alt="The Everyday Speech SEL curriculum page on a laptop, surrounded by the platform's illustrated characters" onerror="this.remove()">
+          </figure>
+        </div>
+      </section>
+
+      <!-- Section 2: Project facts -->
+      <section class="cs-section cs-facts" id="sel-facts" aria-label="Project details">
+        <div class="container">
+          <dl class="facts">
+            <div class="facts__item facts__item--year"><dt>Year</dt><dd>2023</dd></div>
+            <div class="facts__item facts__item--timeline"><dt>Timeline</dt><dd>1 month</dd></div>
+            <div class="facts__item facts__item--industry"><dt>Industry</dt><dd>Edtech</dd></div>
+            <div class="facts__item facts__item--company"><dt>Company</dt><dd>Everyday Speech</dd></div>
+            <div class="facts__item facts__item--team"><dt>Team</dt><dd>Product (Markuss &amp; Lynn), Content, Clinical, Development, and Sales</dd></div>
+            <div class="facts__item facts__item--tools"><dt>Tools</dt><dd>Figma</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <!-- Section 3: Context (centered text) -->
+      <section class="cs-section cs-context" id="sel-context">
+        <div class="container">
+          <p class="eyebrow">Context</p>
+          <p class="center-text center-text--wide">Everyday Speech is an e-learning platform that uses mostly video modeling and games to teach social skills to students to help them thrive.</p>
+          <p class="center-text center-text--wide">Social Emotional Learning (SEL) is 1/2 of the platform, and its lessons are designed for general education (classrooms) vs. the other half (Social Communication) that’s more particular for students with special needs.</p>
+        </div>
+      </section>
+
+      <!-- Section 4: Setup -->
+      <section class="cs-section cs-split" id="sel-setup">
+        <div class="container cs-split__grid">
+          <figure class="media cs-split__art" data-label="Illustrated characters with the SEL curriculum">
+            <img src="assets/images/case-studies/sel/sel-02-setup.webp" width="1072" height="690" loading="lazy" alt="Line drawing of three Everyday Speech characters standing around the Social Emotional Learning Curriculum page" onerror="this.remove()">
+          </figure>
+          <div class="cs-split__text">
+            <p class="eyebrow">Setup</p>
+            <h2 class="title cs-heading">More content, new grades. A bigger audience to consider.</h2>
+            <p>Everyday Speech is preparing to expand its SEL platform with new learning materials, covering a wider range of grade levels — from Pre-K all the way to 12th Grade.</p>
+            <p>The challenge isn’t simply adding more content. We need to make room for these additions without disrupting how existing and new users experience the platform.</p>
+            <p>And that means revisiting some of the fundamentals.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 5: The brief (text left, picture right) -->
+      <section class="cs-section cs-brief" id="sel-brief">
+        <div class="container tc tc--center">
+          <div class="cs-split__text tc__text--left">
+            <p class="eyebrow">The brief</p>
+            <h2 class="title cs-heading">A lot of new material, but where does it all go?</h2>
+            <p>I received a brief outlining the final materials needed for the new SEL, along with initial ideas for the new layouts and possible platform updates.</p>
+            <p>There was already a clear direction for what needs to be delivered, which gives me room to take ownership of how the experience would come together.</p>
+          </div>
+          <figure class="media tc__art tc__art--right" data-label="The brief document" style="aspect-ratio: 1070 / 911;">
+            <img src="assets/images/case-studies/sel/sel-03-brief.webp" width="1070" height="911" loading="lazy" alt="Google Doc titled Final Materials for SEL 3.0 listing the core materials" onerror="this.remove()">
+          </figure>
+        </div>
+      </section>
+
+      <!-- Section 6: Direction (animation left, text right) -->
+      <section class="cs-section cs-sel-direction" id="sel-direction">
+        <div class="container tc tc--center">
+          <div class="tc__art--left">
+            <figure class="media sel-dir-art" data-label="Design review animation">
+              <!-- The second file plays the animation. People who turn on "reduce motion" get the still picture. -->
+              <picture>
+                <source media="(prefers-reduced-motion: reduce)" srcset="assets/images/case-studies/sel/sel-04-designreview-still.webp">
+                <img src="assets/images/case-studies/sel/sel-04-designreview.webp" width="1070" height="823" loading="lazy" alt="Animated slides from an SEL 3.0 design review: tab structure options, voting, lesson page ideas, feedback results and remaining unknowns" onerror="this.closest('picture').remove()">
+              </picture>
+            </figure>
+            <p class="caption caption--dir">One of several design sync activities I’m facilitating with the Content Team to align us on branding</p>
+          </div>
+          <div class="cs-split__text tc__text--right">
+            <p class="eyebrow">Direction</p>
+            <h2 class="title cs-heading">Expand the experience, not just the content.</h2>
+            <p>Before jumping into the screens, I want to make sure we’re aligned on how the platform's visual identity could accommodate the new additions.</p>
+            <p>So I initiate collaborative ideation sessions between me and the Content team using their newly illustrated assets as our starting point.</p>
+            <p>I’m aiming to maintain consistency with Everyday Speech's brand guidelines while making sure the expanded experience remains accessible to our diverse range of users.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 7: The design studies (three columns) -->
+      <section class="cs-section cs-borrower cs-studies" id="sel-studies">
+        <div class="container">
+          <p class="eyebrow">The design studies</p>
+          <div class="exp__grid">
+            <article class="exp">
+              <figure class="media exp__art" data-label="Consistency" data-zoom-group="sel-studies">
+                <img src="assets/images/case-studies/sel/sel-05-consistency.webp" width="690" height="800" loading="lazy" alt="Color palettes for the confirmed, working and proposed grade colors" onerror="this.remove()">
+              </figure>
+              <p class="eyebrow eyebrow--muted">Consistency</p>
+              <h3 class="title cs-subheading">Multiple visual identities demand better consistency.</h3>
+              <p>Everyday Speech has a distinct tone so I have to consider that, on top of accessibility, in choosing the right colors for each new grade level.</p>
+            </article>
+            <article class="exp">
+              <figure class="media exp__art" data-label="Exploration" data-zoom-group="sel-studies">
+                <img src="assets/images/case-studies/sel/sel-06-exploration.webp" width="690" height="800" loading="lazy" alt="Different design directions explored for the grade selection and lessons pages" onerror="this.remove()">
+              </figure>
+              <p class="eyebrow eyebrow--muted">Exploration</p>
+              <h3 class="title cs-subheading">There’s always more than one way to go about redesigning.</h3>
+              <p>I absolutely love exploring different design directions so the team has options to choose from. This also allows for a better visual of what would work best.</p>
+            </article>
+            <article class="exp">
+              <figure class="media exp__art" data-label="Annotation" data-zoom-group="sel-studies">
+                <img src="assets/images/case-studies/sel/sel-07-annotation.webp" width="690" height="800" loading="lazy" alt="Lessons page design with sticky-note annotations" onerror="this.remove()">
+              </figure>
+              <p class="eyebrow eyebrow--muted">Annotation</p>
+              <h3 class="title cs-subheading">Working remotely requires creativity in communication.</h3>
+              <p>Who doesn’t love sticky notes? Instead of chatting back and forth, it’s easier for anyone to read annotations straight from the design file.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 8: The changes (three outlined boxes, old vs new) -->
+      <section class="cs-section cs-changes" id="sel-changes">
+        <div class="container">
+          <p class="eyebrow">The changes</p>
+          <p class="center-text">Evidently, some areas need a little rearranging.</p>
+          <p class="center-text">With the project brief already identifying the major updates, I narrow down the parts that demand change.</p>
+
+          <div class="chg-list">
+            <article class="chg chg--1">
+              <span class="step__num">I</span>
+              <div class="chg__pair">
+                <figure class="chg__col chg__col--old">
+                  <div class="media chg__art" style="--w: 434px; aspect-ratio: 868 / 506;" data-label="Old tab design" data-zoom-group="sel-changes">
+                    <img src="assets/images/case-studies/sel/sel-08-oldtab.webp" width="868" height="506" loading="lazy" alt="The original grade tabs on the SEL curriculum page" onerror="this.remove()">
+                  </div>
+                  <figcaption class="chg__label">Old tab design</figcaption>
+                </figure>
+                <figure class="chg__col chg__col--new">
+                  <div class="media chg__art chg__art--wide" style="--w: 434px; aspect-ratio: 868 / 502;" data-label="New tab structure" data-zoom-group="sel-changes">
+                    <img src="assets/images/case-studies/sel/sel-09-newtab.webp" width="868" height="502" loading="lazy" alt="The new tab structure with Delete buttons and an Add Grade button, explained with sticky notes" onerror="this.remove()">
+                  </div>
+                  <figcaption class="chg__label">New tab structure</figcaption>
+                </figure>
+              </div>
+              <p class="chg__desc">Tab structure — adding Delete and Add Grade buttons for easier navigation of relevant grades</p>
+            </article>
+
+            <article class="chg chg--2">
+              <span class="step__num">II</span>
+              <div class="chg__pair">
+                <figure class="chg__col chg__col--old">
+                  <div class="media chg__art" style="--w: 434px; aspect-ratio: 868 / 526;" data-label="Old grade selection design" data-zoom-group="sel-changes">
+                    <img src="assets/images/case-studies/sel/sel-10-oldgrade.webp" width="868" height="526" loading="lazy" alt="The original grade selection screen with all grades in one row" onerror="this.remove()">
+                  </div>
+                  <figcaption class="chg__label">Old grade selection design</figcaption>
+                </figure>
+                <figure class="chg__col chg__col--new">
+                  <div class="media chg__art" style="--w: 434px; aspect-ratio: 868 / 526;" data-label="New grade selection structure" data-zoom-group="sel-changes">
+                    <img src="assets/images/case-studies/sel/sel-11-newgrade.webp" width="868" height="526" loading="lazy" alt="The new grade selection screen with grades divided into two horizontal columns" onerror="this.remove()">
+                  </div>
+                  <figcaption class="chg__label">New grade selection structure</figcaption>
+                </figure>
+              </div>
+              <p class="chg__desc">Grade selection — making selection more intuitive by dividing grades into columns &amp; making them horizontal</p>
+            </article>
+
+            <article class="chg chg--3">
+              <span class="step__num">III</span>
+              <div class="chg__pair">
+                <figure class="chg__col chg__col--old">
+                  <div class="media chg__art" style="--w: 436px; aspect-ratio: 872 / 570;" data-label="Old grades" data-zoom-group="sel-changes">
+                    <img src="assets/images/case-studies/sel/sel-12-oldgrades.webp" width="872" height="570" loading="lazy" alt="Lessons page in the previous grade colors, with text color annotations" onerror="this.remove()">
+                  </div>
+                  <figcaption class="chg__label">Old grades</figcaption>
+                </figure>
+                <figure class="chg__col chg__col--new">
+                  <div class="media chg__art" style="--w: 436px; aspect-ratio: 872 / 570;" data-label="New grades" data-zoom-group="sel-changes">
+                    <img src="assets/images/case-studies/sel/sel-13-newgrades.webp" width="872" height="570" loading="lazy" alt="Lessons page in the new grade colors, with text color annotations" onerror="this.remove()">
+                  </div>
+                  <figcaption class="chg__label">New grades</figcaption>
+                </figure>
+              </div>
+              <p class="chg__desc">Lessons page - changing the background and text colors for new grades while considering accessibility</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 9: The handoff (text left, picture right) -->
+      <section class="cs-section cs-sel-handoff" id="sel-handoff">
+        <div class="container tc">
+          <div class="cs-split__text tc__text--left">
+            <p class="eyebrow">The handoff</p>
+            <h2 class="title cs-heading">I strive to make developers' lives a little easier.</h2>
+            <p>Some of my favorite parts of design happen outside the actual screens.</p>
+            <p>For me, a good developer handoff is built on clear communication. I make it a point to keep things approachable through annotations, post-its, callouts, and open conversations in Figma comments.</p>
+            <p>For SEL, this means providing:</p>
+            <ul class="areas">
+              <li>Color palettes and mapping for easier implementation</li>
+              <li>Breakpoint specifications for critical pages</li>
+              <li>Annotations clarifying expected layouts and behavior</li>
+              <li>Task prioritization based on perceived implementation complexity</li>
+            </ul>
+            <p>I want the developers to have enough context to understand not just what they’re building, but how everything should come together.</p>
+          </div>
+          <figure class="media hand__art" style="aspect-ratio: 1260 / 830;" data-label="Handoff documentation" data-zoom-group="sel-handoff">
+            <img src="assets/images/case-studies/sel/sel-14-handoff.webp" width="1260" height="830" loading="lazy" alt="Figma handoff documentation: grade mascots, and grade selection button states with annotations" onerror="this.remove()">
+          </figure>
+        </div>
+      </section>
+
+      <!-- Section 10: Constant realignment (picture left, text right) -->
+      <section class="cs-section cs-realign" id="sel-realignment">
+        <div class="container tc tc--center">
+          <div class="tc__art--left">
+            <figure class="media realign__art" style="aspect-ratio: 1070 / 762;" data-label="Knowledge Transfer graphic">
+              <img src="assets/images/case-studies/sel/sel-15-constantrealignment.webp" width="1070" height="762" loading="lazy" alt="Knowledge Transfer graphic in the style of Dragon Ball, with the SEL 3.0 team members' faces" onerror="this.remove()">
+            </figure>
+            <p class="caption caption--realign">[Screenshot] Aligning with PMs should never be boring!</p>
+          </div>
+          <div class="cs-split__text tc__text--right">
+            <p class="eyebrow">Constant realignment</p>
+            <h2 class="title cs-heading">Good design takes more than one set of eyes.</h2>
+            <p>Throughout the project, I make sure to stay aligned with Lynn, our Project Manager, as we work through changes and feedback rounds.</p>
+            <p>I’ve introduced lightweight Knowledge Transfers to keep everyone informed without making updates feel like another lengthy document to read.</p>
+            <p>I even managed to sneak in a Dragon Ball fusion reference. Because why not?</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 11: Interactive prototype -->
+      <section class="cs-section cs-proto" id="sel-prototype">
+        <div class="container tc tc--center">
+          <div class="cs-split__text tc__text--proto">
+            <h2 class="title cs-title-64 proto__title">So<span class="only-desktop">,</span> what’s new?<br>Let’s show them!</h2>
+            <p>With so much new content and functionality coming to the platform, simply publishing a changelog doesn't feel like enough.</p>
+            <p>I want to give users a more engaging way to discover the updates and understand how they could make the most of them.</p>
+            <p>So I create an interactive prototype that would walk users through the new content and features of SEL. Think of it as a guided introduction rather than another list of release notes.</p>
+          </div>
+          <div class="proto__demo">
+            <figure class="media proto__art" style="aspect-ratio: 880 / 534;" data-label="Prototype preview">
+              <img src="assets/images/case-studies/sel/sel-16-prototype.webp" width="880" height="534" loading="lazy" alt="The first screen of the interactive SEL prototype, shown on a laptop" onerror="this.remove()">
+            </figure>
+            <a class="btn" href="https://www.figma.com/proto/jamqfys4B6E2FOLmtZdpon/Everyday-Speech-SEL-Interactive-Prototype?page-id=165%3A11185&amp;node-id=165-11572&amp;viewport=224%2C855%2C0.07&amp;scaling=scale-down&amp;starting-point-node-id=165%3A11232&amp;content-scaling=fixed" target="_blank" rel="noopener">Explore the interactive prototype</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 12: The rollout (four outlined cards) -->
+      <section class="cs-section cs-rollout" id="sel-rollout">
+        <div class="container">
+          <p class="eyebrow">The rollout</p>
+          <div class="roll__grid">
+            <article class="roll">
+              <div class="roll__head"><span class="roll__dot" aria-hidden="true"></span><p class="eyebrow eyebrow--muted">Distribution</p></div>
+              <p class="roll__text">With the different teams aligned and the new experience ready for rollout, SEL helped bring the expanded learning materials to schools.</p>
+            </article>
+            <article class="roll">
+              <div class="roll__head"><span class="roll__dot" aria-hidden="true"></span><p class="eyebrow eyebrow--muted">Collaboration</p></div>
+              <p class="roll__text">Of course, this wasn't a one-person effort. It took the combined work of Product, Content, Clinical, Development, and Sales to make the rollout happen.</p>
+            </article>
+            <article class="roll">
+              <div class="roll__head"><span class="roll__dot" aria-hidden="true"></span><p class="eyebrow eyebrow--muted">Conversion</p></div>
+              <p class="roll__text">The project contributed to dozens of school subscription conversions, particularly in states already welcoming the new Social Emotional Learning curriculum.</p>
+            </article>
+            <article class="roll">
+              <div class="roll__head"><span class="roll__dot" aria-hidden="true"></span><p class="eyebrow eyebrow--muted">Appreciation</p></div>
+              <p class="roll__text">A special shoutout to Lynn for keeping everything moving smoothly across the teams involved.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 13: The takeaway + closing box -->
+      <section class="cs-section cs-takeaway" id="sel-takeaway">
+        <div class="container">
+          <div class="tc tc--center">
+            <figure class="media tc__art tc__art--left takeaway__art" style="aspect-ratio: 1253 / 1231;" data-label="Slack announcement from Lynn" data-zoom-group="sel-takeaway">
+              <img src="assets/images/case-studies/sel/sel-17-takeaway.webp" width="1253" height="1231" loading="lazy" alt="Lynn's Slack announcement celebrating the SEL 3.0 launch, with illustrated characters around it" onerror="this.remove()">
+            </figure>
+            <div class="cs-split__text takeaway__text">
+              <h2 class="title cs-title-64">The takeaway</h2>
+              <p>Much of this story isn't just about the screens I designed. It's about the people and conversations that helped bring the project together.</p>
+              <p>SEL was one of my earlier projects as Everyday Speech’s Product Designer, and having the opportunity to lead design discussions, facilitate reviews, and work closely with different stakeholders helped me become a more confident communicator.</p>
+              <p>My biggest takeaway?</p>
+              <p>You should always encourage clear and open communication. It's about knowing when to stand by your design decisions and when to make room for another perspective.</p>
+              <p class="takeaway__quote">Because the best solutions rarely come from working alone.</p>
+            </div>
+          </div>
+
+          <div class="callout callout--sel">
+            <p>That's the story behind my revamp for SEL. If you enjoyed the work and would like to collaborate,<br>we should probably meet.</p>
+            <a class="btn" href="contact.html?from=sel">Get in touch</a>
+          </div>
+        </div>
+      </section>
+
+
+    </div>
+
+    <!-- =====================================================
+         TAB 3: SANTI
+         ===================================================== -->
+    <div class="cs-panel" role="tabpanel" id="panel-santi" aria-labelledby="tab-santi" hidden>
+
+      <!-- Section 1: Hero -->
+      <section class="cs-section cs-hero" id="santi-hero">
+        <div class="container cs-hero__grid">
+          <div class="cs-hero__text">
+            <h1 class="title title--xl cs-title">What if<br class="br-desk"> studying felt<br class="br-desk"> like a game?</h1>
+            <p class="cs-hero__lead">Designing a mobile-friendly learning platform that brings lessons, progress tracking, and classroom management together through a more engaging experience.</p>
+            <ul class="pills" aria-label="My role">
+              <li class="pill">UI/UX Design</li>
+              <li class="pill">Visual Identity</li>
+              <li class="pill">Illustration</li>
+            </ul>
+          </div>
+          <figure class="media cs-hero__art" data-label="Hero artwork">
+            <img src="assets/images/case-studies/santi/santi-01-hero.webp" width="940" height="896" loading="lazy" alt="The Santi student dashboard on desktop and phone, surrounded by bursts of colorful confetti" onerror="this.remove()">
+          </figure>
+        </div>
+      </section>
+
+      <!-- Section 2: Project facts -->
+      <section class="cs-section cs-facts" id="santi-facts" aria-label="Project details">
+        <div class="container">
+          <dl class="facts">
+            <div class="facts__item facts__item--year"><dt>Year</dt><dd>2021</dd></div>
+            <div class="facts__item facts__item--timeline"><dt>Timeline</dt><dd>2 months</dd></div>
+            <div class="facts__item facts__item--industry"><dt>Industry</dt><dd>Edtech</dd></div>
+            <div class="facts__item facts__item--company"><dt>Company</dt><dd>Digiteer,<br class="br-desk"> for Don Bosco Makati</dd></div>
+            <div class="facts__item facts__item--team"><dt>Team</dt><dd>Lead Design (Markuss), 1 Frontend Dev, 1 Full-stack Dev, 1 PM</dd></div>
+            <div class="facts__item facts__item--tools"><dt>Tools</dt><dd>Figma</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <!-- Section 3: Setup -->
+      <section class="cs-section cs-split" id="santi-setup">
+        <div class="container cs-split__grid">
+          <figure class="media cs-split__art" data-label="Lesson path illustration">
+            <img src="assets/images/case-studies/santi/santi-02-setup.webp" width="1072" height="807" loading="lazy" alt="Chalk-style drawing of a phone showing a lesson path, with a seated cartoon Jesus beside it" onerror="this.remove()">
+          </figure>
+          <div class="cs-split__text">
+            <p class="eyebrow">Setup</p>
+            <h2 class="title cs-heading">Learning was moving online.<br class="br-desk"> How could we make it feel less<br class="br-desk"> like a chore?</h2>
+            <p>Picture this: you govern a school. It’s 2020. The pandemic hit us bad, and you’re being pressured to digitize schooling.</p>
+            <p>Exactly what Don Bosco Technical Institute is going through. The challenge is to create an experience that students would enjoy using, while giving teachers and administrators a more convenient way to manage lessons, grading, and student progress.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 4: The challenge (text left, picture right) -->
+      <section class="cs-section santi-challenge" id="santi-challenge">
+        <div class="container tc">
+          <div class="cs-split__text tc__text tc__text--left">
+            <p class="eyebrow">The challenge</p>
+            <h2 class="title cs-heading">Teaching and learning in one<br class="br-desk"> connected experience.</h2>
+            <p>Students need a place to access lessons and track their progress. Teachers need tools to create learning materials, grade activities, and monitor students.</p>
+            <p>The goal is to bring both experiences into one mobile-friendly platform without making either side feel complicated.</p>
+          </div>
+          <figure class="media santi-challenge__art" data-label="Santi landing page">
+            <img src="assets/images/case-studies/santi/santi-03-challenge.webp" width="1256" height="582" loading="lazy" alt="The Santi landing page on desktop and phone: Learn the ways of the Lord, the fun way" onerror="this.remove()">
+          </figure>
+        </div>
+      </section>
+
+      <!-- Section 5: Finding the structure (picture left, text right) -->
+      <section class="cs-section santi-structure" id="santi-structure">
+        <div class="container tc tc--center">
+          <div class="tc__art tc__art--left">
+            <figure class="media santi-structure__art" data-label="Low-fidelity wireframe">
+              <img src="assets/images/case-studies/santi/santi-04-structure.webp" width="1070" height="1224" loading="lazy" alt="Grey low-fidelity wireframe of the student dashboard" onerror="this.remove()">
+            </figure>
+            <p class="caption">Low-fidelity wireframe of Student dashboard</p>
+          </div>
+          <div class="cs-split__text tc__text tc__text--right">
+            <p class="eyebrow">Finding the structure</p>
+            <h2 class="title cs-heading">Before making it fun, we had to<br class="br-desk"> make it make sense.</h2>
+            <p>The Don Bosco team has already conducted user tests to understand which features matter to students and teachers, and where they expect to find them.</p>
+            <p>They also have already decided on what to name the platform: Santi. In this first phase, we’re only really focusing on Christian Living Education, but I’m keeping in mind this would expand in the future.</p>
+            <p>I use the findings to shape the sitemap, navigation, and content hierarchy, then translate the structure into low- and high-fidelity wireframes.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 6: Setting the look and feel (six numbered studies) -->
+      <section class="cs-section cs-steps santi-look" id="santi-look">
+        <div class="container">
+          <p class="eyebrow">Setting the look and feel</p>
+          <p class="center-text center-text--wide">With no established visual guidelines for the project, I have the freedom to develop Santi’s visual direction from scratch.</p>
+          <div class="steps__grid">
+            <article class="step">
+              <span class="step__num">I</span>
+              <figure class="media step__art" data-label="Moodboard">
+                <img src="assets/images/case-studies/santi/santi-05-moodboard.webp" width="690" height="521" loading="lazy" alt="Collage of playful children’s illustrations and colorful learning app screens" onerror="this.remove()">
+              </figure>
+              <p>Moodboarding. This is mainly for grade schoolers so we look for “playful.”</p>
+            </article>
+            <article class="step">
+              <span class="step__num">II</span>
+              <figure class="media step__art" data-label="Logo exploration">
+                <img src="assets/images/case-studies/santi/santi-06-logos.webp" width="690" height="521" loading="lazy" alt="Nine colorful Santi logo variations, some with a cap, halo or smile" onerror="this.remove()">
+              </figure>
+              <p>Logo exploration. Don Bosco is a Catholic school for boys, hence the cap and halo.</p>
+            </article>
+            <article class="step">
+              <span class="step__num">III</span>
+              <figure class="media step__art" data-label="Sitemap">
+                <img src="assets/images/case-studies/santi/santi-07-sitemap.webp" width="691" height="521" loading="lazy" alt="Sitemap of the student dashboard and its navigation" onerror="this.remove()">
+              </figure>
+              <p>Sitemap. The idea is that the dashboard should resemble a bulletin board.</p>
+            </article>
+            <article class="step">
+              <span class="step__num">IV</span>
+              <figure class="media step__art" data-label="Design study one">
+                <img src="assets/images/case-studies/santi/santi-08-study1.webp" width="690" height="521" loading="lazy" alt="First dashboard design study in bold blue, purple and yellow" onerror="this.remove()">
+              </figure>
+              <p>My first design study. Bold colors, accessible, but too strong on the eyes.</p>
+            </article>
+            <article class="step">
+              <span class="step__num">V</span>
+              <figure class="media step__art" data-label="Design study two">
+                <img src="assets/images/case-studies/santi/santi-09-study2.webp" width="690" height="521" loading="lazy" alt="Second dashboard design study using outlined cards" onerror="this.remove()">
+              </figure>
+              <p>My second design study. Played around with outlines. This would be my baseline.</p>
+            </article>
+            <article class="step">
+              <span class="step__num">VI</span>
+              <figure class="media step__art" data-label="Design study three">
+                <img src="assets/images/case-studies/santi/santi-10-study3.webp" width="690" height="521" loading="lazy" alt="Third dashboard design study in soft pastel cards with cartoon avatars" onerror="this.remove()">
+              </figure>
+              <p>My third design study. I figured this one’s too childish. Still, I like it.</p>
+            </article>
+          </div>
+          <p class="center-text santi-look__outro">We’re aiming for a bright and approachable identity to make the learning experience feel more inviting, hence the brainfarting of various style explorations.</p>
+        </div>
+      </section>
+
+      <!-- Section 7: The student side (outlined boxes) -->
+      <section class="cs-section santi-student" id="santi-student">
+        <div class="container">
+
+          <!-- Box: The dashboard -->
+          <div class="pivot santi-box" id="santi-dashboard">
+            <p class="eyebrow">The dashboard</p>
+            <p class="pivot__text santi-box__intro">The student dashboard brings together the lesson tracker, announcements, events, leaderboards, and student achievements — much like a bulletin board.</p>
+            <figure class="media pivot__art santi-dashboard__art" data-label="Student dashboard">
+              <img src="assets/images/case-studies/santi/santi-11-dashboard.webp" width="1972" height="1193" loading="lazy" alt="The Santi student dashboard shown on a laptop, with a lesson path, bulletin board, leaderboards and calendar" onerror="this.remove()">
+            </figure>
+            <p class="caption santi-dashboard__caption">I did what I could with the colors. Stakeholders wanted it to be, like, “vibrant” vibrant.</p>
+          </div>
+
+          <!-- Box: A gamified experience -->
+          <div class="pivot santi-box" id="santi-gamified">
+            <p class="eyebrow">A gamified experience</p>
+            <p class="pivot__text santi-box__intro santi-box__intro--wide">The lesson tracker is the platform’s central feature.</p>
+            <div class="santi-kit">
+              <figure class="media santi-kit__art" data-label="Lesson tracker pieces">
+                <img src="assets/images/case-studies/santi/santi-12-gamified.webp" width="1740" height="1334" loading="lazy" alt="Lesson tracker design pieces: numbered lesson markers, stars, character poses and four landscape backgrounds" onerror="this.remove()">
+              </figure>
+            </div>
+            <figure class="media pivot__art santi-screens" data-label="Lesson screens" data-screens="Lesson pathway screen|List of lessons screen|Lesson in progress screen">
+              <img src="assets/images/case-studies/santi/santi-13-lessons.webp" width="1972" height="1198" loading="lazy" alt="Three phone screens: the lesson pathway, the list of lessons and a lesson in progress" onerror="this.remove()">
+            </figure>
+            <div class="santi-note">
+              <p>Inspired by familiar mobile games like Candy Crush, I designed a dynamic pathway that adapts to the number of lessons in each unit. Students could see which lessons were completed, which are upcoming, and which ones need to be retaken.</p>
+              <p>The visual states made progress easier to understand at a glance, while giving students a more engaging way to work through their lessons.</p>
+            </div>
+          </div>
+
+          <!-- Box: The reward system -->
+          <div class="pivot santi-box" id="santi-rewards">
+            <p class="eyebrow">The reward system</p>
+            <p class="pivot__text santi-box__intro">To encourage participation, I designed a badge and star-based reward system.</p>
+            <figure class="media pivot__art santi-screens" data-label="Reward screens" data-screens="Gold badge celebration screen|Student rank and other badges screen|Leaderboards screen">
+              <img src="assets/images/case-studies/santi/santi-14-rewards.webp" width="1972" height="1198" loading="lazy" alt="Three phone screens: a gold badge celebration, the student’s rank with other badges, and the leaderboards" onerror="this.remove()">
+            </figure>
+            <div class="santi-note santi-note--wide">
+              <p>Students earned stars through graded activities and unlocked or upgraded badges as they reached milestones. Different badge categories also recognized participation in lessons, sacraments, and other activities.</p>
+              <p>I also designed achievement prompts to celebrate these moments and make progress feel rewarding.</p>
+            </div>
+          </div>
+
+          <!-- Box: Beyond the lessons -->
+          <div class="pivot santi-box" id="santi-beyond">
+            <p class="eyebrow">Beyond the lessons</p>
+            <p class="pivot__text santi-box__intro">The student experience extends beyond the lessons.</p>
+            <figure class="media pivot__art santi-screens" data-label="Student screens" data-screens="Events calendar screen|Prayers and Sacraments screen with the Family Sunday Gospel|Saint John Bosco profile screen">
+              <img src="assets/images/case-studies/santi/santi-15-beyond.webp" width="1972" height="1198" loading="lazy" alt="Three phone screens: the events calendar, Prayers and Sacraments with the Family Sunday Gospel, and a profile of Saint John Bosco" onerror="this.remove()">
+            </figure>
+            <div class="santi-note">
+              <p>Students could revisit lessons, check upcoming events, browse prayers and songs, explore Mass guides, and take part in the Family Sunday Gospel activity with their families.</p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Section 8: The teachers’ side (text left, laptop right) -->
+      <section class="cs-section santi-teachers" id="santi-teachers">
+        <div class="container tc tc--center">
+          <div class="cs-split__text tc__text santi-teachers__text">
+            <p class="eyebrow">The teachers’ side</p>
+            <h2 class="title cs-heading">What about the people creating the lessons?</h2>
+            <p>The Teachers’ Portal needs a practical way for teachers to build learning materials without adding unnecessary complexity.</p>
+            <p>I designed a tile-based lesson editor that followed the structure of Don Bosco’s existing curriculum. Teachers could add sections and choose whether each tile contained a title, question, photo or video, or file.</p>
+            <p>This approach keeps lesson creation structured while allowing teachers to assemble their own content more intuitively.</p>
+          </div>
+          <div class="santi-teachers__side">
+            <figure class="media santi-teachers__art" data-label="Teachers’ lesson editor">
+              <img src="assets/images/case-studies/santi/santi-16-teachers.webp" width="880" height="534" loading="lazy" alt="The Teachers’ Portal lesson editor shown on a laptop" onerror="this.remove()">
+            </figure>
+            <p class="caption santi-teachers__caption">The teachers are already familiar with how Google Forms works so I pretty much patterned the whole experience after it.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 9: Fundamentals (picture left, text right) -->
+      <section class="cs-section santi-fund" id="santi-fundamentals">
+        <div class="container tc tc--center">
+          <figure class="media santi-fund__art" data-label="Grid system, email templates and badges">
+            <img src="assets/images/case-studies/santi/santi-17-fundamentals.webp" width="1262" height="1356" loading="lazy" alt="The dashboard grid on desktop and mobile, two email templates, and a guide to the Santi badges" onerror="this.remove()">
+          </figure>
+          <div class="cs-split__text tc__text tc__text--right">
+            <p class="eyebrow">Fundamentals</p>
+            <h2 class="title cs-heading">Since Santi was designed as a<br class="br-desk"> browser-based platform,<br class="br-desk"> responsiveness is an important<br class="br-desk"> consideration.</h2>
+            <p>I developed a grid system and component-based UI kit to support different screen sizes and make the interface easier to build across pages.</p>
+            <p>I also designed supporting elements such as email templates, badges, and the landing and login pages for students and teachers.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 10: The next chapter + closing box -->
+      <section class="cs-section santi-next" id="santi-next">
+        <div class="container">
+          <div class="tc">
+            <figure class="media tc__art tc__art--left santi-next__art" data-label="Coming soon">
+              <img src="assets/images/case-studies/santi/santi-18-nextchapter.webp" width="1195" height="896" loading="lazy" alt="A flying yellow dove above a blue cloud that says Coming Soon" onerror="this.remove()">
+            </figure>
+            <div class="outro__text santi-next__text">
+              <h2 class="title cs-title-64">The next chapter</h2>
+              <p>A good learning experience keeps growing.</p>
+              <p>Santi brings together the student learning experience and the tools teachers need to manage it.</p>
+              <p>The next phase identifies opportunities to make the experience more personal and connected, including one-on-one teacher meetings, real-time lesson comments, and student profile customization.</p>
+              <p>The takeaway: Making learning more engaging isn’t just about adding rewards or bright colors. It’s about giving students a clearer sense of progress while making it easier for teachers to guide the journey.</p>
+            </div>
+          </div>
+
+          <div class="callout santi-closing">
+            <p>That’s how I built Santi from the ground up. If you like what I do, we should probably meet.</p>
+            <a class="btn" href="contact.html?from=santi">Get in touch</a>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+  </main>
+
+  <footer class="container site-footer">
+    <p>Copyright © 2026<br>Made by Markuss Javier</p>
+    <p class="site-footer__right">Designed in Figma,<br>Hosted on GitHub.</p>
+  </footer>
+
+  <script src="js/case-studies.js"></script>
+  <script src="js/enlarge.js"></script>
+  <script src="js/touch.js"></script>
+</body>
+</html>

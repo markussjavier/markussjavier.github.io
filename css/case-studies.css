@@ -1,0 +1,749 @@
+/* =====================================================
+   case-studies.css — styles for case-studies.html only
+   (fixed tab bar, hero, facts row, text + image sections)
+   Shared things (fonts, colors, buttons) live in base.css
+   ===================================================== */
+
+:root {
+  --line: #505050;          /* thin divider lines between sections */
+  --header-h: 96px;
+}
+
+/* ---------- Fixed top bar ---------- */
+.cs-header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+  height: var(--header-h);
+  background: linear-gradient(to bottom, var(--bg) 65%, rgba(17, 17, 17, 0));
+}
+.cs-header__inner {
+  position: relative; height: 100%;
+  display: flex; align-items: flex-start; justify-content: space-between;
+  padding-top: 35px;
+}
+
+/* Tabs sit in the exact center of the page on desktop */
+.cs-tabs {
+  position: absolute; left: 50%; top: 35px; transform: translateX(-50%);
+  display: flex; gap: 24px;
+  font-size: 12px; line-height: 24px;
+}
+.back svg { width: 24px; height: 24px; flex: none; }
+.cs-tab {
+  position: relative; text-decoration: none; color: var(--text-secondary);
+  transition: color .15s ease;
+}
+@media (hover: hover) { .cs-tab:hover { color: var(--text-title); } }
+/* Touch screens: each tab gets an invisible tap area, 44px tall and 12px wider on each side
+   (half the 24px space between tabs, so neighbours never overlap) */
+@media (pointer: coarse) {
+  .cs-tab::before { content: ""; position: absolute; left: -12px; right: -12px; top: 50%; height: 44px; margin-top: -22px; }
+}
+.cs-tab:focus-visible { color: var(--text-title); }
+.cs-tab[aria-selected="true"] { color: var(--link); }
+/* the little dot under the active tab */
+.cs-tab[aria-selected="true"]::after {
+  content: ""; position: absolute; left: 50%; bottom: -10px;
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--accent); transform: translateX(-50%);
+}
+
+/* When you move with the keyboard, stop the page low enough that the
+   fixed top bar doesn't cover the selected item */
+main a, main button { scroll-margin-top: calc(var(--header-h) + 16px); scroll-margin-bottom: 16px; }
+
+/* ---------- Tab panels ---------- */
+.cs-panel[hidden] { display: none; }
+/* soft fade when you switch tabs (not on first load, and not with "reduce motion" on) */
+@media (prefers-reduced-motion: no-preference) {
+  .cs-panel.is-entering { animation: cs-fade-in .2s ease-out; }
+}
+@keyframes cs-fade-in { from { opacity: 0; } to { opacity: 1; } }
+
+/* The pictures have their real width and height written in the HTML (so the page
+   can save space for them before they load). This keeps their proportions.
+   :where() makes it the weakest rule, so any other height rule still wins. */
+:where(.cs-panel img) { height: auto; }
+
+/* ---------- Sections and divider lines ---------- */
+.cs-section { border-bottom: 1px solid var(--line); }
+
+/* ---------- Small helper styles ---------- */
+.eyebrow {
+  font-size: 12px; line-height: 16px; letter-spacing: .15em;
+  text-transform: uppercase; color: var(--link);
+}
+.cs-title { margin: 0; line-height: 1; }                     /* 80px page titles */
+.cs-heading {
+  font-size: var(--fs-heading); line-height: 1; letter-spacing: var(--ls-heading);
+}
+
+/* Picture holder. If the image file is missing you see a dashed box
+   with a label, so you know which picture goes where. */
+.media {
+  position: relative; margin: 0; width: 100%;
+  border: 1px dashed #444; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-secondary); font-size: 12px; text-align: center;
+}
+.media::before { content: attr(data-label); padding: 16px; }
+.media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+.media:has(img) { border: 0; }
+.media:has(img)::before { content: none; }
+
+/* ---------- Section 1: Hero ---------- */
+.cs-hero { padding: 227px 0 80px; }
+.cs-hero__grid {
+  display: grid; grid-template-columns: repeat(12, 1fr); column-gap: var(--grid-gap);
+  align-items: start;
+}
+.cs-hero__text { grid-column: 1 / span 7; grid-row: 1; }
+.cs-hero__lead {
+  margin-top: 44px; max-width: 520px;
+  font-size: 16px; line-height: 24px; color: var(--text-primary);
+}
+/* the art is taller than the text, so we pull its bottom edge up (negative margin)
+   to keep the divider line where the Figma design has it */
+.cs-hero__art { grid-column: 7 / span 6; grid-row: 1; aspect-ratio: 1110 / 1186; margin-top: -81px; margin-bottom: -177px; }
+@media (min-width: 1200px) {
+  /* the artwork is 555px wide and sits slightly right of the grid, like in Figma */
+  .cs-hero__art { width: 555px; margin-left: 68px; }
+}
+
+/* LoanMatcha: the same gap between the title and the text as SEL and Santi
+   (phones use 15px, set in the phone section below) */
+#panel-loanmatcha .cs-hero__lead { margin-top: 21px; }
+
+/* Tablets: the big headline shrinks with the screen, so it stays beside the picture.
+   7.8vw - 6px means: about 54px at 768 wide, 74px at 1024, and the full 80px from 1103 up. */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .cs-hero .cs-title { font-size: clamp(52px, 7.8vw - 6px, 80px); }
+  /* LoanMatcha: keeps the desktop's three lines ("What's a better / way to move / money?") */
+  #panel-loanmatcha .cs-hero .cs-title { max-width: 6.8em; }
+}
+
+/* Role pills */
+.pills { list-style: none; margin: 29px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  height: 28px; padding: 0 16px; border-radius: 999px;
+  border: 1px solid var(--text-secondary); color: var(--text-secondary);
+  font-size: 12px; line-height: 1; white-space: nowrap;
+}
+.pill::before {                                   /* small filled dot */
+  content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--text-secondary);
+}
+.pill--active { border-color: var(--link); color: var(--link); }
+.pill--active::before { background: none; border: 1px solid var(--link); }   /* hollow dot */
+
+/* ---------- Section 2: Facts row ---------- */
+.cs-facts { padding: 43px 0; }
+.facts {
+  margin: 0; display: grid;
+  grid-template-columns: 110px 147px 148px 263px 378px auto;     /* matches the Figma spacing */
+}
+.facts__item dt {
+  font-size: 12px; line-height: 16px; letter-spacing: .15em;
+  text-transform: uppercase; color: var(--text-secondary);
+}
+.facts__item dd { margin: 0; font-size: 14px; line-height: 21px; color: var(--text-primary); }
+/* keep the long values wrapping where the design wraps them */
+.facts__item--company dd { max-width: 190px; }
+.facts__item--team dd    { max-width: 310px; }
+
+/* ---------- Section 3 (and other "picture + text" sections) ---------- */
+.cs-split { padding: 84px 0 72px; }
+.cs-split__grid {
+  display: grid; grid-template-columns: repeat(12, 1fr); column-gap: var(--grid-gap);
+  align-items: center;
+}
+.cs-split__art  { grid-column: 1 / span 6; aspect-ratio: 535 / 369; }
+.cs-split__text { grid-column: 8 / span 5; }
+.cs-split__text .eyebrow { margin-bottom: 14px; }
+.cs-split__text .cs-heading { margin-bottom: 20px; }
+.cs-split__text p + p { margin-top: 24px; }
+.cs-split__text p:not(.eyebrow) { font-size: 16px; line-height: 24px; color: var(--text-primary); }
+
+/* ---------- Section 4: Investigation (text left, picture right) ---------- */
+.cs-split--investigation { padding: 84px 0 82px; }
+.cs-split--investigation .cs-split__grid { align-items: start; }
+.cs-split--investigation .cs-split__text { grid-column: 1 / span 5; grid-row: 1; }
+.cs-split--investigation .cs-split__art  { grid-column: 7 / span 6; grid-row: 1; aspect-ratio: 535 / 537; }
+
+/* The five-areas list, with its three accent colors */
+.areas { margin: 24px 0; padding: 0 0 0 19px; list-style: disc; }
+.areas li { font-size: 16px; line-height: 24px; color: var(--text-primary); }
+.areas li::marker { font-size: 12px; }
+.areas em { font-size: 14px; font-style: italic; }
+.c-blue  { color: var(--accent-blue); }
+.c-pink  { color: var(--accent-pink); }
+.c-green { color: var(--accent); }
+.cs-split__text p.areas-note { font-size: 14px; line-height: 20px; font-style: italic; }
+.cs-split__text .areas + p { margin-top: 0; }
+
+/* ---------- Section 5: two columns (Card sorting | Journey mapping) ---------- */
+.cs-duo { padding: 76px 0 80px; }
+.cs-duo__grid { display: grid; grid-template-columns: repeat(12, 1fr); column-gap: var(--grid-gap); align-items: start; }
+.cs-duo__item--left  { grid-column: 1 / span 5; }
+.cs-duo__item--right { grid-column: 8 / span 5; }
+.cs-duo__item .eyebrow { text-align: center; margin-bottom: 16px; }
+.cs-duo__art { aspect-ratio: 444 / 336; margin-bottom: 12px; border-radius: 0; }
+.cs-duo__item p:not(.eyebrow) { font-size: 16px; line-height: 24px; color: var(--text-primary); }
+
+/* ---------- Section 6: Guiding light (3 columns x 2 rows) ---------- */
+.cs-steps { padding: 78px 0 0; border-bottom: 0; }          /* no divider: Direction continues below it */
+.cs-steps > .container > .eyebrow { text-align: center; margin-bottom: 48px; }
+.steps__grid {
+  display: grid; grid-template-columns: repeat(12, 1fr);
+  column-gap: var(--grid-gap); row-gap: 48px;
+}
+.step { grid-column: span 4; text-align: center; }
+.step__num {                                                   /* circled roman numeral */
+  display: grid; place-items: center; width: 28px; height: 28px; margin: 0 auto 16px;
+  border: 1px solid var(--text-title); border-radius: 50%;
+  font-size: 12px; line-height: 1; color: var(--text-title);
+}
+.step__art { aspect-ratio: 690 / 521; margin-bottom: 16px; border-radius: 0; }
+.step p:not(.eyebrow) { font-size: 14px; line-height: 21px; color: var(--text-primary); }
+
+/* White-outlined box with the button */
+.callout {
+  margin-top: 80px; padding: 24px; text-align: center;
+  border: 1px solid var(--text-title); color: var(--text-title);
+}
+.callout p { font-size: 16px; line-height: 24px; }
+.callout .btn { margin-top: 16px; }
+
+/* ---------- Section 7: Direction (picture left, text right) ---------- */
+.cs-direction { padding: 78px 0 80px; }
+.cs-direction__grid { display: grid; grid-template-columns: repeat(12, 1fr); column-gap: var(--grid-gap); align-items: start; }
+.cs-direction__art  { grid-column: 1 / span 6; grid-row: 1; }
+.cs-direction__art .media { aspect-ratio: 535 / 401; }
+.cs-direction .cs-split__text { grid-column: 8 / span 5; grid-row: 1; }
+.caption { margin-top: 20px; text-align: center; font-size: 14px; line-height: 21px; color: var(--text-primary); }
+
+/* ---------- Section 8: The borrower experience (3 columns) + The pivot box ---------- */
+.cs-borrower { padding: 78px 0 80px; }
+.cs-borrower > .container > .eyebrow { text-align: center; margin-bottom: 49px; }
+.eyebrow--muted { color: var(--text-secondary); }
+.cs-subheading { font-size: 24px; line-height: 1; letter-spacing: var(--ls-heading); }
+.exp__grid { display: grid; grid-template-columns: repeat(12, 1fr); column-gap: var(--grid-gap); }
+.exp { grid-column: span 4; }
+.exp__art { aspect-ratio: 690 / 800; margin-bottom: 30px; border-radius: 0; }
+.exp .eyebrow { margin-bottom: 16px; }
+.exp .cs-subheading { margin-bottom: 24px; }
+.exp p:not(.eyebrow) { font-size: 16px; line-height: 24px; color: var(--text-primary); }
+
+.pivot {
+  margin-top: 80px; padding: 48px; text-align: center;
+  border: 1px solid var(--text-title);
+}
+.pivot .eyebrow { margin-bottom: 12px; }
+.pivot__text { max-width: 520px; margin: 0 auto; font-size: 16px; line-height: 24px; color: var(--text-primary); }
+.pivot__art { max-width: 986px; margin: 40px auto 0; aspect-ratio: 1972 / 842; border-radius: 0; }
+
+/* ---------- Two-column rows (picture + text) used by the later sections ----------
+   In the HTML the picture always comes first, so on phones it shows above the text.
+   On desktop the classes below put each part in the right columns.            */
+.tc { display: grid; grid-template-columns: repeat(12, 1fr); column-gap: var(--grid-gap); align-items: start; }
+.tc--center { align-items: center; }
+.tc__art--right  { grid-column: 7 / span 6; grid-row: 1; }
+.tc__text--left  { grid-column: 1 / span 5; grid-row: 1; }
+.tc__art--left   { grid-column: 1 / span 6; grid-row: 1; }
+.tc__text--right { grid-column: 8 / span 5; grid-row: 1; }
+.tc .cs-split__text { grid-column: auto; }
+.tc__text--left  { grid-column: 1 / span 5 !important; }
+.tc__text--right { grid-column: 8 / span 5 !important; }
+.tc__art .media, figure.tc__art { border-radius: 0; }
+.caption--narrow { max-width: 380px; margin-left: auto; margin-right: auto; }
+
+/* centered paragraph used by Handoff */
+.center-text { max-width: 520px; margin: 0 auto; text-align: center; font-size: 16px; line-height: 24px; color: var(--text-primary); }
+
+/* ---------- Section 9 + 10: text row, then an outlined box ---------- */
+.cs-lending, .cs-otherside { padding: 78px 0 80px; }
+.cs-otherside { padding-top: 80px; }
+.pivot--spaced { margin-top: 80px; }
+.cs-lending .pivot--spaced { margin-top: 80px; }
+.pivot__text--after { margin-top: 40px; }
+
+/* ---------- Section 11: Handoff ---------- */
+.cs-handoff { padding: 78px 0 80px; }
+.cs-handoff > .container > .eyebrow { text-align: center; margin-bottom: 12px; }
+.handoff__art { margin: 40px 0; border-radius: 0; }
+
+/* ---------- Section 12: From discovery to implementation ---------- */
+.cs-outro { padding: 64px 0 14px; border-bottom: 0; }          /* the footer adds the rest of the space */
+.outro__art { grid-column: 1 / span 6; }
+.outro__text { grid-column: 7 / span 6; grid-row: 1; }
+@media (min-width: 1200px) { .outro__art { width: 551px; } }
+.cs-title-64 { font-size: var(--fs-title); line-height: 1; letter-spacing: var(--ls-title); margin: 0 0 40px; }
+.outro__text p { font-size: 16px; line-height: 24px; color: var(--text-primary); }
+.outro__text p + p { margin-top: 24px; }
+.callout--narrow { margin-top: 48px; }
+.callout--narrow p { max-width: 540px; margin: 0 auto; }
+
+/* ---------- "Coming soon" panels ---------- */
+.cs-soon { padding: 227px 0 120px; }
+.cs-soon__text { color: var(--text-secondary); }
+
+/* Narrower screens (tablets): the facts row wraps instead of running off the page.
+   It goes up to 1199 because the desktop row needs the full desktop width. */
+@media (max-width: 1199px) {
+  .facts { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 24px; column-gap: 24px; }
+  .facts__item--company, .facts__item--team, .facts__item--tools { grid-column: auto; }
+  .facts__item--company dd, .facts__item--team dd { max-width: none; }
+}
+
+/* ---------- Phones ---------- */
+@media (max-width: 767px) {
+  :root { --header-h: 72px; }
+
+  .cs-header__inner { padding-top: 26px; align-items: flex-start; }
+  .cs-tabs { position: static; transform: none; gap: 24px; margin-top: 5px; line-height: 14px; }
+  .cs-tab[aria-selected="true"]::after { bottom: -12px; }
+
+  .cs-hero { padding: 79px 0 56px; }
+  .cs-hero__grid { display: block; }
+  .cs-hero__lead { margin-top: 26px; max-width: none; font-size: 14px; line-height: 21px; }
+  #panel-loanmatcha .cs-hero__lead { margin-top: 15px; }
+  .pills { margin-top: 24px; }
+  .cs-hero__art { margin: 40px 0 0; aspect-ratio: 290 / 260; }
+
+  .cs-facts { padding: 40px 0; }
+  .facts { grid-template-columns: 90px 128px auto; row-gap: 24px; column-gap: 0; }
+  .facts__item--company, .facts__item--team, .facts__item--tools { grid-column: 1 / -1; }
+  .facts__item--company dd, .facts__item--team dd { max-width: none; }
+
+  .cs-split { padding: 48px 0; }
+  .cs-split__grid { display: block; }
+  .cs-split__art { aspect-ratio: 290 / 260; margin-bottom: 32px; }
+  .cs-split__text p:not(.eyebrow) { font-size: 14px; line-height: 21px; }
+
+
+  .cs-split--investigation { padding: 48px 0; }
+  .cs-split--investigation .cs-split__art { aspect-ratio: 290 / 291; margin: 48px 0 0; }
+  .areas li { font-size: 14px; line-height: 21px; }
+  .areas em { font-size: 14px; }
+  .cs-split__text p.areas-note { font-size: 14px; line-height: 21px; }
+
+  .cs-duo { padding: 32px 0 40px; }
+  .cs-duo__grid { display: block; }
+  .cs-duo__item + .cs-duo__item { margin-top: 36px; }
+  .cs-duo__art { margin-bottom: 16px; }
+  .cs-duo__item p:not(.eyebrow) { font-size: 12px; line-height: 18px; }
+
+
+  .cs-steps { padding: 48px 0 0; }
+  .cs-steps > .container > .eyebrow { margin-bottom: 32px; }
+  .steps__grid { display: block; }
+  .step + .step { margin-top: 40px; }
+  .step p:not(.eyebrow) { font-size: 14px; line-height: 21px; }
+  .callout { margin-top: 48px; padding: 16px; }
+  .callout p { font-size: 14px; line-height: 21px; }
+  .callout .btn { display: flex; width: 100%; margin-top: 16px; }
+
+  .cs-direction { padding: 48px 0; }
+  .cs-direction__grid { display: block; }
+  .cs-direction__art { margin-bottom: 40px; }
+  .caption { font-size: 12px; line-height: 18px; margin-top: 16px; }
+
+
+  .cs-borrower { padding: 48px 0; }
+  .cs-borrower > .container > .eyebrow { margin-bottom: 32px; }
+  .exp__grid { display: block; }
+  .exp + .exp { margin-top: 48px; }
+  .exp p:not(.eyebrow) { font-size: 14px; line-height: 21px; }
+  .pivot { margin-top: 48px; padding: 16px; }
+  .pivot__text { font-size: 14px; line-height: 21px; }
+  .pivot__art { margin-top: 24px; }
+
+
+  .tc { display: block; }
+  .tc__art--right, .tc__art--left { margin-bottom: 32px; }
+  .tc__text--left, .tc__text--right { grid-column: auto !important; }
+  .caption--narrow { max-width: none; margin-top: 12px; }
+  .cs-lending, .cs-otherside { padding: 32px 0 48px; }
+  .cs-otherside { padding-top: 32px; }
+  .pivot--spaced, .cs-lending .pivot--spaced { margin-top: 48px; }
+  .pivot__text--after { margin-top: 24px; }
+  .center-text { font-size: 14px; line-height: 21px; }
+  .cs-handoff { padding: 48px 0; }
+  .handoff__art { margin: 24px 0; }
+  .cs-outro { padding: 48px 0 0; }
+  .cs-title-64 { font-size: 40px; margin-bottom: 20px; }
+  .outro__text p { font-size: 14px; line-height: 21px; }
+  .callout--narrow { margin-top: 48px; }
+
+  .cs-soon { padding: 120px 0; }
+}
+
+
+/* =====================================================
+   SEL tab (everything below only affects #panel-sel)
+   ===================================================== */
+/* Hero: same padding and artwork layout as LoanMatcha; only the text column and picture shape differ */
+#panel-sel .cs-hero__text { grid-column: 1 / span 7; }     /* same width as LoanMatcha; the title's line breaks are set in the HTML */
+.br-desk { display: inline; }
+@media (max-width: 767px) { .br-desk { display: none; } }
+#panel-sel .cs-hero__lead { margin-top: 21px; max-width: 530px; }
+#panel-sel .cs-hero__art { aspect-ratio: 1224 / 1130; }
+
+/* Context: two centered paragraphs under a centered label */
+.cs-context { padding: 39px 0 42px; }
+.cs-context > .container > .eyebrow { text-align: center; margin-bottom: 16px; }
+.center-text--wide { max-width: 540px; }
+.center-text + .center-text { margin-top: 24px; }
+
+#panel-sel .cs-facts { padding: 40px 0 41px; }
+#panel-sel .cs-split { padding: 80px 0; }
+#panel-sel .cs-split__art { aspect-ratio: 1072 / 690; }
+#panel-sel .cs-split__text .eyebrow { margin-bottom: 24px; }
+#panel-sel .cs-split__text .cs-heading { margin-bottom: 24px; }
+
+.cs-brief { padding: 81px 0 79px; }
+.cs-sel-direction { padding: 80px 0; }
+.sel-dir-art { aspect-ratio: 1070 / 823; border-radius: 0; }
+.caption--dir { max-width: 480px; margin: 15px auto 0; text-wrap: balance; }
+
+/* Design studies: SEL uses 14px text in the three columns */
+#panel-sel .exp p:not(.eyebrow) { font-size: 14px; line-height: 21px; }
+#panel-sel .exp .eyebrow { margin-bottom: 25px; }
+#panel-sel .exp .cs-subheading { margin-bottom: 23px; }
+
+@media (max-width: 767px) {
+  #panel-sel .cs-hero__lead { margin-top: 15px; }
+  #panel-sel .cs-hero__art { aspect-ratio: 1224 / 1130; }
+
+  .cs-context { padding: 30px 0 33px; }
+  .center-text + .center-text { margin-top: 21px; }
+
+  #panel-sel .cs-split { padding: 32px 0 48px; }
+  #panel-sel .cs-split__art { aspect-ratio: 1072 / 690; margin-bottom: 34px; }
+  #panel-sel .cs-split__text p + p { margin-top: 21px; }
+
+  .cs-brief { padding: 28px 0 33px; }
+  #panel-sel .tc__text--left + .tc__art--right { margin: 24px 0 0; }
+  .cs-sel-direction { padding: 30px 0 48px; }
+  #panel-sel .tc__art--left { margin-bottom: 24px; }
+  .caption--dir { margin-top: 20px; }
+
+  #panel-sel .cs-facts { padding: 28px 0 36px; }
+  #panel-sel .pills { margin-right: -15px; }       /* the Figma pill row runs 5px past the margin */
+
+  .cs-studies { padding: 33px 0 40px; }
+  .cs-studies > .container > .eyebrow { margin-bottom: 32px; }
+  .cs-studies .exp + .exp { margin-top: 32px; }
+  /* the three pictures have transparent space around them: crop it, like the phone design */
+  .cs-studies .exp__art { margin-bottom: 30px; }
+  .cs-studies .exp__art img { object-fit: cover; }
+  .cs-studies .exp:nth-child(1) .exp__art { aspect-ratio: 290 / 231; }
+  .cs-studies .exp:nth-child(2) .exp__art { aspect-ratio: 290 / 302; }
+}
+
+/* =====================================================
+   SEL tab, stage 2: The changes → The takeaway
+   ===================================================== */
+
+/* The changes: three outlined boxes */
+.cs-changes { padding: 78px 0 79px; }
+.cs-changes > .container > .eyebrow { text-align: center; margin-bottom: 16px; }
+.cs-changes .center-text { max-width: 540px; }
+.chg-list { margin-top: 40px; display: grid; gap: 40px; }
+.chg { padding: 24px; text-align: center; border: 1px solid var(--text-title); color: var(--text-title); }
+.chg .step__num { margin-bottom: 16px; }
+.chg__pair { display: grid; grid-template-columns: repeat(2, minmax(0, 474px)); justify-content: center; align-items: start; }
+.chg__col { margin: 0; }
+.chg__art { --w: 100%; width: var(--w); max-width: 100%; margin: 0 auto; border-radius: 0; }
+.chg__label { margin-top: 15px; font-size: 14px; line-height: 21px; color: var(--text-title); }
+.chg__desc { margin: 16px auto 0; max-width: 540px; font-size: 16px; line-height: 24px; color: var(--text-title); }
+
+/* The handoff: text on the left (columns 1–5), picture on the right (columns 6–12) */
+.cs-sel-handoff { padding: 78px 0 80px; }
+.cs-sel-handoff .areas { margin: 0 0 24px; }
+.hand__art { grid-column: 6 / span 7; grid-row: 1; margin-top: 129px; border-radius: 0; }
+
+/* Constant realignment */
+.cs-realign { padding: 80px 0; }
+.caption--realign { margin-top: 15px; }
+.realign__art { border-radius: 0; }
+
+/* Interactive prototype */
+.cs-proto { padding: 105px 0 104px; }
+.cs-proto .tc__text--proto { grid-column: 1 / span 6; grid-row: 1; }
+.cs-proto .proto__title { margin: 0 0 22px; }
+.proto__demo { grid-column: 7 / span 6; grid-row: 1; display: flex; flex-direction: column; align-items: center; }
+.proto__art { width: 440px; max-width: 100%; border-radius: 0; margin-bottom: 40px; }
+
+/* The rollout: four outlined cards */
+.cs-rollout { padding: 78px 0 80px; }
+.cs-rollout > .container > .eyebrow { text-align: center; margin-bottom: 48px; }
+.roll__grid { display: grid; grid-template-columns: repeat(12, 1fr); column-gap: var(--grid-gap); row-gap: 32px; }
+.roll { grid-column: span 3; display: flex; flex-direction: column; justify-content: space-between; gap: 24px; min-height: 354px; padding: 24px 32px; border: 1px solid var(--text-title); color: var(--text-title); }
+.roll__head { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.roll__dot { flex: none; width: 17px; height: 17px; border: 1px solid var(--text-title); border-radius: 50%; }
+.roll__text { font-size: 16px; line-height: 24px; color: var(--text-title); }
+
+/* The takeaway */
+.cs-takeaway { padding: 20px 0 14px; border-bottom: 0; }     /* the footer adds the rest of the space */
+.takeaway__art { grid-column: 1 / span 6; }
+.tc .takeaway__text { grid-column: 7 / span 6; grid-row: 1; padding-top: 21px; }
+.takeaway__text .cs-title-64 { margin-bottom: 22px; }
+.takeaway__text p { font-size: 16px; line-height: 24px; color: var(--text-primary); }
+.takeaway__text p + p { margin-top: 24px; }
+.takeaway__text p.takeaway__quote { font-size: 14px; line-height: 21px; font-style: italic; color: var(--accent); }
+.callout--sel { margin-top: 41px; }
+.callout--sel p { max-width: 540px; margin: 0 auto; }
+@media (min-width: 1200px) {
+  /* the picture is drawn at half its file size and sticks out a little to the left, like in Figma */
+  .takeaway__art { width: 626px; max-width: none; margin-left: -65px; }
+}
+
+@media (max-width: 1100px) {
+  .roll { grid-column: span 6; }
+  .hand__art { grid-column: 1 / -1; grid-row: 2; margin-top: 40px; }
+  .cs-sel-handoff .tc__text--left { grid-column: 1 / -1 !important; }
+}
+
+@media (max-width: 767px) {
+  .cs-changes { padding: 30px 0 32px; }
+  .cs-changes > .container > .eyebrow { margin-bottom: 32px; }
+  .chg-list { margin-top: 32px; gap: 32px; }
+  .chg { padding: 16px; }
+  .chg__pair { grid-template-columns: minmax(0, 1fr); row-gap: 16px; }
+  .chg__art { width: 100%; }
+  .chg__art--wide { width: calc(100% + 32px); max-width: none; margin-inline: -16px; }
+  .chg--1 .chg__col--new { margin-top: 28px; }
+  .chg__label { margin-top: 16px; font-size: 12px; line-height: 18px; }
+  .chg__desc { font-size: 14px; line-height: 21px; }
+
+  .cs-sel-handoff { padding: 30px 0 32px; }
+  .cs-sel-handoff .areas { padding-left: 17px; }
+  .hand__art { margin-top: 24px; }
+
+  .cs-realign { padding: 32px 0; }
+  .caption--realign { margin-top: 15px; }
+
+  .cs-proto { padding: 32px 0; }
+  .cs-proto .proto__title { margin-bottom: 15px; }
+  .proto__demo { display: block; margin-top: 24px; }
+  .proto__art { width: 100%; margin-bottom: 24px; }
+  .proto__demo .btn { display: flex; width: 100%; }
+
+  .cs-rollout { padding: 30px 0 32px; }
+  .cs-rollout > .container > .eyebrow { margin-bottom: 32px; }
+  .roll { grid-column: 1 / -1; min-height: 0; gap: 48px; padding: 24px; }
+  .roll__text { font-size: 14px; line-height: 21px; }
+
+  /* the picture is wider than the screen; its faded edges are cut off */
+  .cs-takeaway { padding: 0 0 0; overflow: hidden; }
+  .takeaway__art { width: calc(100% + 30px); max-width: none; margin: max(-8vw, -38.4px) 0 max(-17vw, -81.6px) -15px; }   /* full column width, so the whole glow shows on any phone (the px values stop it growing past the 480px column) */
+  .takeaway__text { padding-top: 0; position: relative; z-index: 1; }
+  .takeaway__text .cs-title-64 { margin-bottom: 15px; }
+  .takeaway__text p { font-size: 14px; line-height: 21px; }
+  .takeaway__text p + p { margin-top: 21px; }
+  .takeaway__text p.takeaway__quote { font-size: 14px; }
+  .callout--sel { margin-top: 32px; padding: 24px 16px; }
+}
+
+/* LoanMatcha outro title: two lines on desktop ("From discovery to / implementation.") */
+@media (min-width: 1200px) { .outro__text .cs-title-64 { white-space: nowrap; } }
+
+
+/* =====================================================
+   Santi tab, stage 1: Hero → Finding the structure
+   (everything below only affects the Santi tab)
+   ===================================================== */
+/* Hero: same padding and artwork layout as LoanMatcha; only the picture shape differs */
+#panel-santi .cs-hero__lead { margin-top: 21px; max-width: 545px; }
+#panel-santi .cs-hero__art { aspect-ratio: 940 / 896; }
+
+#panel-santi .cs-facts { padding: 40px 0 41px; }
+
+/* Setup */
+#panel-santi .cs-split { padding: 80px 0; }
+#panel-santi .cs-split__art { aspect-ratio: 1072 / 807; border-radius: 0; }
+#panel-santi .cs-split__text .eyebrow,
+#panel-santi .cs-split__text .cs-heading { margin-bottom: 24px; }
+
+/* The challenge: text in columns 1–5, picture in columns 6–12 */
+.santi-challenge { padding: 80px 0; }
+.santi-challenge__art { grid-column: 6 / span 7; grid-row: 1; margin-top: 16px; aspect-ratio: 1256 / 582; border-radius: 0; }
+
+/* Finding the structure */
+.santi-structure { padding: 80px 0 73px; }
+.santi-structure__art { aspect-ratio: 1070 / 1224; border-radius: 0; }
+.santi-structure .caption { margin-top: 16px; }
+
+/* Desktop: keep the Figma line breaks in the two longest headings */
+@media (min-width: 1200px) {
+  #santi-setup .cs-heading,
+  .santi-structure .cs-heading { white-space: nowrap; }
+}
+
+/* Below desktop size the headings wrap on their own */
+@media (max-width: 1199px) {
+  #santi-setup .cs-heading .br-desk,
+  .santi-structure .cs-heading .br-desk { display: none; }
+}
+
+/* Tablets: the challenge picture moves under its text so it stays readable */
+@media (max-width: 1100px) {
+  .santi-challenge .tc__text--left { grid-column: 1 / -1 !important; }
+  .santi-challenge__art { grid-column: 1 / -1; grid-row: 2; margin-top: 40px; }
+}
+
+@media (max-width: 767px) {
+  #panel-santi .cs-hero { padding-bottom: 0; }
+  #panel-santi .cs-hero__lead { margin-top: 15px; }
+  #panel-santi .cs-hero__art { width: calc(100% + 26px); max-width: none; margin: 6px 0 0 -17px; }
+
+  #panel-santi .cs-facts { padding: 28px 0 36px; }
+
+  /* Setup flows straight into The challenge on phones (no line between them) */
+  #santi-setup { padding: 32px 0 0; border-bottom: 0; }
+  /* the phone design crops the empty space beside the drawing */
+  #panel-santi .cs-split__art { aspect-ratio: 290 / 383; max-width: 360px; margin: 0 auto 30px; }
+  #panel-santi .cs-split__art img { object-fit: cover; }
+  #panel-santi .cs-split__text p + p { margin-top: 21px; }
+
+  .santi-challenge { padding: 48px 0 31px; }
+  .santi-challenge__art { margin-top: 27px; }
+
+  .santi-structure { padding: 32px 0 40px; }
+  .santi-structure .tc__art--left { margin-bottom: 32px; }
+  /* like the Figma phone design, these two may run a few pixels into the right margin */
+  #panel-santi .pills { margin-right: -15px; }
+  .santi-structure .cs-heading { margin-right: -10px; }
+}
+
+/* =====================================================
+   Santi tab, stage 2: Look and feel → The dashboard
+   ===================================================== */
+/* Setting the look and feel: reuses the LoanMatcha numbered-step grid */
+.santi-look { padding: 80px 0; border-bottom: 1px solid var(--line); }
+.santi-look > .container > .eyebrow { margin-bottom: 16px; }
+.santi-look .center-text--wide { max-width: 530px; }
+.santi-look .steps__grid { margin-top: 48px; }
+.santi-look__outro { margin-top: 48px; max-width: 540px; }
+.santi-look .step { padding: 16px; border: 1px solid var(--text-title); }   /* each study sits in its own box */
+.santi-look .step p { margin-inline: -2px; }                 /* a hair wider, so captions wrap like Figma */
+
+/* Outlined boxes for the student side: reuses the .pivot box */
+.santi-student { padding: 80px 0; }
+.santi-box { margin-top: 0; }
+.santi-box + .santi-box { margin-top: 80px; }
+.santi-box .eyebrow { margin-bottom: 16px; }
+.santi-box__intro { max-width: 500px; }
+.santi-dashboard__art { aspect-ratio: 1972 / 1193; }
+.santi-dashboard__caption { max-width: 520px; margin: 16px auto 0; }
+
+@media (max-width: 767px) {
+  .santi-look { padding: 32px 0 36px; }
+  .santi-look > .container > .eyebrow { margin-bottom: 32px; }
+  .santi-look .steps__grid { margin-top: 32px; }
+  .santi-look .step + .step { margin-top: 32px; }
+  .santi-look__outro { margin-top: 32px; }
+
+  .santi-student { padding: 32px 0; }
+  .santi-box { padding: 16px; }
+  .santi-box + .santi-box { margin-top: 32px; }
+  .santi-dashboard__art { margin-top: 24px; }
+}
+
+/* =====================================================
+   Santi tab, stage 3: Gamified → Reward system → Beyond the lessons
+   ===================================================== */
+.santi-box__intro--wide { max-width: 560px; }
+
+/* the inner outlined box around the lesson tracker pieces */
+.santi-kit {
+  max-width: 988px; margin: 40px auto 0; border: 1px solid var(--text-title);
+  padding: min(2.6vw, 36px) min(4.1vw, 58px);
+}
+.santi-kit__art { aspect-ratio: 1740 / 1334; max-width: 870px; margin: 0 auto; border-radius: 0; }
+
+.santi-screens { aspect-ratio: 1972 / 1198; }
+
+/* small centered text under the screens */
+.santi-note { max-width: 524px; margin: 40px auto 0; font-size: 14px; line-height: 21px; color: var(--text-primary); }
+.santi-note--wide { max-width: 536px; }
+.santi-note p + p { margin-top: 21px; }
+
+@media (max-width: 767px) {
+  .santi-box .pivot__art { margin-top: 16px; }
+  .santi-kit { margin-top: 16px; padding: 9px 15px; }
+  .santi-note { margin-top: 16px; }
+  .santi-box .santi-dashboard__caption { font-size: 14px; line-height: 21px; }   /* same size as the other boxes */
+}
+
+/* =====================================================
+   Santi tab, stage 4: Teachers’ side → Fundamentals → The next chapter
+   ===================================================== */
+/* The teachers’ side flows into Fundamentals (no line between them) */
+.santi-teachers { padding: 104px 0 0; border-bottom: 0; }
+.tc .santi-teachers__text { grid-column: 1 / span 6; grid-row: 1; }   /* ".tc" in front so it wins over the shared rule */
+.santi-teachers__side { grid-column: 7 / span 6; grid-row: 1; }
+.santi-teachers__art { max-width: 440px; margin: 0 auto; aspect-ratio: 880 / 534; border-radius: 0; }
+.santi-teachers__caption { max-width: 420px; margin: 24px auto 0; }
+#panel-santi .santi-teachers .eyebrow,
+#panel-santi .santi-teachers .cs-heading,
+#panel-santi .santi-fund .eyebrow,
+#panel-santi .santi-fund .cs-heading { margin-bottom: 24px; }
+
+.santi-fund { padding: 105px 0 79px; }
+.santi-fund__art { grid-column: 1 / span 7; grid-row: 1; max-width: 631px; aspect-ratio: 1262 / 1356; border-radius: 0; }
+
+.santi-next { padding: 80px 0 14px; border-bottom: 0; }        /* the footer adds the rest of the space */
+.santi-next__art { aspect-ratio: 1195 / 896; border-radius: 0; }
+.santi-next__text { padding-top: 8px; }
+.santi-next__text .cs-title-64 { margin-bottom: 23px; }
+.santi-closing { margin-top: 69px; }
+.santi-closing p { max-width: 500px; margin: 0 auto; }
+
+@media (min-width: 1200px) {
+  .santi-fund .cs-heading { white-space: nowrap; }
+  /* the dove is drawn at half its file size and sticks out a little to the left, like in Figma */
+  .santi-next__art { width: 598px; max-width: none; margin-left: -50px; }
+}
+@media (max-width: 1199px) { .santi-fund .cs-heading .br-desk { display: none; } }
+
+/* Tablets: text and pictures share the width evenly */
+@media (min-width: 768px) and (max-width: 1100px) {
+  .santi-fund__art { grid-column: 1 / span 6; }
+  .santi-fund .tc__text--right { grid-column: 7 / span 6 !important; }
+}
+
+/* Upright tablets: bigger pictures (this stays below the rules above so it wins over them) */
+@media (min-width: 768px) and (max-width: 899px) {
+  /* Look and feel: two boxes across instead of three */
+  .santi-look .step { grid-column: span 6; }
+
+  /* Fundamentals: the picture goes on top, with its text underneath.
+     It stops at 631px wide (its desktop size) so it stays sharp. */
+  .santi-fund__art { grid-column: 1 / -1; width: 100%; justify-self: center; margin: 0 auto; }
+  .santi-fund .tc__text--right { grid-column: 1 / -1 !important; grid-row: 2; width: 100%; max-width: 631px; justify-self: center; margin-top: 40px; }
+}
+
+@media (max-width: 767px) {
+  .santi-teachers { padding: 32px 0 0; }
+  #panel-santi .santi-teachers .cs-split__text p + p { margin-top: 21px; }
+  .santi-teachers__side { margin-top: 24px; }
+  .santi-teachers__caption { max-width: none; margin-top: 24px; }
+
+  .santi-fund { padding: 36px 0 32px; }
+  /* the picture runs to both edges of the screen, like the phone design */
+  .santi-fund__art { width: calc(100% + 30px); max-width: 520px; margin: 0 0 32px -15px; }
+  #panel-santi .santi-fund .cs-split__text p + p { margin-top: 21px; }
+
+  .santi-next { padding: 0; overflow: hidden; }
+  /* the dove is a bit wider than the screen, so its soft edges are trimmed */
+  .tc .santi-next__art {
+    --w: min(100% + 60px, 460px);
+    width: var(--w); max-width: none; margin: 33px 0 18px calc((100% - var(--w)) / 2);
+  }
+  .santi-next__text { padding-top: 0; }
+  .santi-next__text .cs-title-64 { margin-bottom: 14px; }
+  #panel-santi .santi-next__text p + p { margin-top: 21px; }
+  .santi-closing { margin-top: 32px; padding: 24px 16px; }
+}
+@media (min-width: 768px) and (max-width: 1100px) { .santi-fund .cs-heading { font-size: 28px; } }

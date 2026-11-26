@@ -1,0 +1,91 @@
+/* =====================================================
+   enlarge.css — the "tap or click to enlarge" view
+   (case studies, Tattoo Flashes and Prints; works with js/enlarge.js)
+   ===================================================== */
+/* Case studies: invisible button over a picture, or over each screen in it */
+.zoom-hit {
+  position: absolute; top: 0; height: 100%; z-index: 1;
+  margin: 0; padding: 0; border: 0; background: transparent; cursor: zoom-in;
+}
+
+@media (max-width: 767px) { .takeaway__art .zoom-hit:focus-visible { outline-offset: -4px; } }  /* edge-to-edge on phones: keep the outline on screen */
+
+/* Tattoo flashes and Prints: each small picture sits inside a plain button */
+.zoom-thumb {
+  display: block; width: 100%; margin: 0; padding: 0; border: 0;
+  background: transparent; line-height: 0; cursor: zoom-in;
+}
+
+/* the page behind doesn't scroll while a screen is open */
+html.zoom-open { overflow: hidden; }
+
+/* the dark overlay, covering the whole window */
+.zoom {
+  position: fixed; inset: 0; margin: 0; padding: 0; border: 0;
+  width: 100%; max-width: none; height: 100vh; height: 100dvh; max-height: none;
+  background: rgba(17, 17, 17, .98); color: var(--text-title);
+}
+.zoom::backdrop { background: transparent; }
+@media (prefers-reduced-motion: no-preference) {
+  .zoom[open] { animation: zoom-fade-in .2s ease-out; }
+}
+@keyframes zoom-fade-in { from { opacity: 0; } to { opacity: 1; } }
+
+.zoom__layout {
+  height: 100%; padding: 12px var(--page-margin);
+  display: flex; flex-direction: column; align-items: center; gap: 12px;
+}
+.zoom__top, .zoom__bottom { flex: none; width: min(605px, 100%); display: flex; align-items: center; }
+.zoom__top { justify-content: space-between; }
+.zoom__close { margin-left: auto; }                 /* stays on the right, with or without "Zoom in" */
+.zoom__bottom[hidden] { display: none; }            /* single pictures have no Previous / Next */
+.zoom__bottom { justify-content: space-between; }
+.zoom__label { flex: none; max-width: min(605px, 100%); font-size: 14px; line-height: 21px; text-align: center; }
+.zoom__label[hidden] { display: none; }
+.zoom__count { font-size: 12px; color: var(--text-secondary); }
+
+/* the picture is as big as fits between the buttons, up to --max-w (set by enlarge.js) */
+.zoom__stage {
+  flex: 1; min-height: 0; width: 100%; overflow: auto;
+  display: flex; flex-direction: column; align-items: center;
+  container-type: size;
+}
+.zoom__frame {
+  --screen-ratio: .505; --max-w: 605px;
+  position: relative; flex: none; overflow: hidden; margin: auto 0;
+  width: min(var(--max-w), 100vw - 2 * var(--page-margin), (100vh - 136px) * var(--screen-ratio));
+  width: min(var(--max-w), 100cqw, 100cqh * var(--screen-ratio));
+  aspect-ratio: var(--screen-ratio);
+}
+.zoom__img { position: absolute; top: 0; height: 100%; max-width: none; }
+
+/* buttons: same outlined style as the Get in touch boxes */
+.zoom__btn {
+  height: 44px; min-width: 96px; padding: 0 16px;
+  font: inherit; font-size: 14px; line-height: 1; cursor: pointer;
+  background: var(--bg); color: var(--text-title); border: 1px solid var(--text-title); border-radius: 0;
+  transition: color .15s ease, border-color .15s ease, background-color .15s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+@media (hover: hover) { .zoom__btn:hover { color: var(--button); border-color: var(--button); } }
+.zoom__btn:focus-visible { color: var(--button); border-color: var(--button); }
+.zoom__btn:active { color: var(--bg); background: var(--button); border-color: var(--button); }
+
+/* short screens, such as a phone held sideways: show the screen wider and let it scroll up and down */
+@media (max-height: 500px) {
+  .zoom__stage { container-type: normal; }
+  .zoom__frame { width: min(360px, var(--max-w), 100%); margin: 0; }
+  /* wide case-study pictures still fit the window whole */
+  .zoom--wide .zoom__stage { container-type: size; }
+  .zoom--wide .zoom__frame { width: min(var(--max-w), 100cqw, 100cqh * var(--screen-ratio)); margin: auto 0; }
+}
+
+/* "Zoom in": the picture at its file width, in a box you can move around.
+   Keep these rules last so they also apply on short screens. */
+.zoom--in .zoom__stage {
+  container-type: normal; align-items: flex-start;
+  overscroll-behavior: contain; cursor: grab;
+}
+.zoom--in .zoom__frame { width: var(--zoom-w); margin: auto; }   /* centred if it fits, scrollable if not */
+.zoom--in .zoom__img { -webkit-user-select: none; user-select: none; }
+.zoom--dragging .zoom__stage { cursor: grabbing; }

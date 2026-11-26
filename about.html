@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About me — Markuss Javier</title>
+  <meta name="description" content="Markuss Javier is a product designer, visual artist, drummer, cyclist, trail runner, hiker, event organizer and film enthusiast. Events, prints, tattoo flashes, music and video edits.">
+
+  <!-- Link preview: the picture and text shown when someone shares this page -->
+  <meta property="og:url" content="https://markussjavier.com/about.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Markuss Javier">
+  <meta property="og:title" content="About me — Markuss Javier">
+  <meta property="og:description" content="Markuss Javier is a product designer, visual artist, drummer, cyclist, trail runner, hiker, event organizer and film enthusiast. Events, prints, tattoo flashes, music and video edits.">
+  <meta property="og:image" content="https://markussjavier.com/assets/images/social-sharing.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="600">
+  <meta property="og:image:alt" content="Markuss logo with the words Product Designer, Visual Artist, Drummer and Friend">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/about.css">
+  <link rel="stylesheet" href="css/enlarge.css">
+</head>
+<body class="page-about">
+
+  <!-- The grainy look of the big titles (recreates Figma's "Texture" effect) -->
+  <svg class="svg-defs" aria-hidden="true" focusable="false">
+    <filter id="grain-lg" x="-3%" y="-15%" width="106%" height="130%" color-interpolation-filters="sRGB">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2.8" result="blur"/>
+      <feComponentTransfer in="blur" result="soft"><feFuncA type="linear" slope="1.9"/></feComponentTransfer>
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="1" seed="4" result="noise"/>
+      <feColorMatrix in="noise" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  3.2 0 0 0 -1" result="grains"/>
+      <feComposite in="soft" in2="grains" operator="arithmetic" k1="0" k2="9" k3="-9" k4="0"/>
+    </filter>
+    <filter id="grain-sm" x="-3%" y="-15%" width="106%" height="130%" color-interpolation-filters="sRGB">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="1.9" result="blur"/>
+      <feComponentTransfer in="blur" result="soft"><feFuncA type="linear" slope="1.7"/></feComponentTransfer>
+      <feTurbulence type="fractalNoise" baseFrequency="1.5" numOctaves="1" seed="4" result="noise"/>
+      <feColorMatrix in="noise" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  2.2 0 0 0 -0.45" result="grains"/>
+      <feComposite in="soft" in2="grains" operator="arithmetic" k1="0" k2="3.0" k3="-3.0" k4="0"/>
+    </filter>
+  </svg>
+
+  <header class="site-header container">
+    <a class="back" href="index.html">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.5L20.9 12.5L19.983 12.4803C18.8477 12.4558 17.9853 12.4245 17.396 12.3863L16.92 12.3554L16.444 12.3246C15.8547 12.2864 15.2653 12.321 14.676 12.4284L14.2 12.5151L13.724 12.6019C13.1347 12.7093 12.5453 12.685 11.956 12.5291L11.48 12.4031L11.004 12.2771C10.4147 12.1212 9.82533 12.0796 9.236 12.1525L8.76 12.2113L8.284 12.2701C7.69467 12.343 7.10533 12.3863 6.516 12.4002L6.04 12.4113L5.564 12.4225C4.97467 12.4364 4.498 12.4131 4.134 12.3527L3.84 12.304L3.546 12.2552C3.182 12.1948 3 12.2009 3 12.2736L3 12.3323L3.1 12.5L3 12.5M9.5 19L9.42929 18.9293L8.95951 18.8105L8.77034 18.7441C8.53613 18.662 8.23922 18.384 7.8796 17.9102L7.58913 17.5275L7.29867 17.1448C6.93905 16.671 6.5546 16.222 6.14532 15.7978L5.81475 15.4552L5.48418 15.1126C5.0749 14.6885 4.48036 14.0635 3.70055 13.2377L3.07071 12.5707L3 12.5L3.07071 12.4293L3.70518 11.7669C4.49071 10.9468 5.12004 10.3567 5.59317 9.99635L5.97532 9.70533L6.35747 9.41431C6.8306 9.054 7.28633 8.67629 7.72466 8.28117L8.07869 7.96203L8.43272 7.6429C8.87104 7.24778 9.1346 6.93644 9.22339 6.7089L9.2951 6.52511L9.42929 6.07071L9.5 6"/></svg>
+      <span>Back</span>
+    </a>
+  </header>
+
+  <main>
+    <!-- Main heading for screen readers and search engines (not visible) -->
+    <h1 class="visually-hidden">About me</h1>
+
+    <section class="container grid-12 about-intro">
+      <img class="about-intro__photo" src="assets/images/about/photo.webp" width="690" height="690" alt="Portrait of Markuss Javier wearing a green cap and glasses">
+      <div class="about-intro__text">
+        <p>Markuss Javier is a product designer, visual artist, brother to 1 cat and 1 dog, drummer, cyclist, trail runner, hiker, event organizer, film enthusiast, and friend.</p>
+        <p>Lately, he’s really been into organizing community events. It’s an awesome excuse for him to do posters because he loves designing posters!</p>
+      </div>
+    </section>
+
+    <section class="container section section--first" aria-labelledby="upcoming-title">
+      <h2 class="title grain" id="upcoming-title">Upcoming Events</h2>
+      <p class="empty-note">There are no upcoming events.</p>
+    </section>
+
+    <section class="container section section--after-note" aria-labelledby="past-title">
+      <h2 class="title grain" id="past-title">Past Events</h2>
+      <ul class="grid-12 cards-grid cards-grid--events section__body">
+        <li>
+          <article class="info-card info-card--square">
+            <img src="assets/images/about/events/exploratour.webp" width="686" height="686" loading="lazy" alt="Poster for Exploratour Culmination Day">
+            <div class="info-card__body">
+              <p class="meta">November 22, 2026</p>
+              <h3 class="card-title">Exploratour Culmination Day</h3>
+              <p class="card-note">Built Cycles, Makati City</p>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="info-card info-card--square">
+            <img src="assets/images/about/events/bic.webp" width="686" height="686" loading="lazy" alt="Poster for Beauty in Chaos and Friends">
+            <div class="info-card__body">
+              <p class="meta">October 30, 2026</p>
+              <h3 class="card-title">Beauty in Chaos and Friends</h3>
+              <p class="card-note">5911 Matilde, Makati City</p>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="info-card info-card--square">
+            <img src="assets/images/about/events/reso2.webp" width="686" height="686" loading="lazy" alt="Poster for Resonate and Friends 2">
+            <div class="info-card__body">
+              <p class="meta">October 3-4, 2026</p>
+              <h3 class="card-title">Resonate and Friends 2</h3>
+              <p class="card-note">Resonate Coffee and Hardware</p>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="info-card info-card--square">
+            <img src="assets/images/about/events/resoyear6.webp" width="686" height="686" loading="lazy" alt="Poster for Resonate Coffee Year 6">
+            <div class="info-card__body">
+              <p class="meta">September 6, 2026</p>
+              <h3 class="card-title">Resonate Coffee Year 6</h3>
+              <p class="card-note">Resonate Coffee and Hardware</p>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="info-card info-card--square">
+            <img src="assets/images/about/events/catstrail.webp" width="686" height="686" loading="lazy" alt="Poster for Cats Trail: Metro Manila Ride">
+            <div class="info-card__body">
+              <p class="meta">September 5, 2026</p>
+              <h3 class="card-title">Cats Trail: Metro Manila Ride</h3>
+              <p class="card-note"><span class="only-desktop">QC → Pasig → Makati → Marikina</span><span class="only-mobile">Metro Manila</span></p>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="info-card info-card--square">
+            <img src="assets/images/about/events/localhost.webp" width="686" height="686" loading="lazy" alt="Poster for Localhost and Friends">
+            <div class="info-card__body">
+              <p class="meta">August 1-2, 2026</p>
+              <h3 class="card-title">Localhost and Friends</h3>
+              <p class="card-note"><span class="only-desktop">Localhost Coffee, Marikina City</span><span class="only-mobile">Localhost Coffee, Marikina</span></p>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="info-card info-card--square">
+            <img src="assets/images/about/events/reso1.webp" width="686" height="686" loading="lazy" alt="Poster for Resonate and Friends">
+            <div class="info-card__body">
+              <p class="meta">June 27-28, 2026</p>
+              <h3 class="card-title">Resonate and Friends</h3>
+              <p class="card-note"><span class="only-desktop">Resonate Coffee, Marikina City</span><span class="only-mobile">Resonate Coffee, Marikina</span></p>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="info-card info-card--square">
+            <img src="assets/images/about/events/communal.webp" width="686" height="686" loading="lazy" alt="Poster for Communal and Friends">
+            <div class="info-card__body">
+              <p class="meta">May 23-24, 2026</p>
+              <h3 class="card-title">Communal and Friends</h3>
+              <p class="card-note"><span class="only-desktop">Communal Coffee, Marikina City</span><span class="only-mobile">Communal Coffee, Marikina</span></p>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="info-card info-card--square">
+            <img src="assets/images/about/events/benji.webp" width="686" height="686" loading="lazy" alt="Poster for Benji Turns 2: Social Dog Walk">
+            <div class="info-card__body">
+              <p class="meta">May 17, 2026</p>
+              <h3 class="card-title">Benji Turns 2: Social Dog Walk</h3>
+              <p class="card-note">Marikina City</p>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="info-card info-card--square">
+            <img src="assets/images/about/events/built13.webp" width="686" height="686" loading="lazy" alt="Poster for Built Year 13 at El Union">
+            <div class="info-card__body">
+              <p class="meta">July 12, 2025</p>
+              <h3 class="card-title">Built Year 13 at El Union</h3>
+              <p class="card-note">El Union Taas, San Juan, LU</p>
+            </div>
+          </article>
+        </li>
+      </ul>
+      <div class="cta">
+        <p>Let me know if you want to collaborate for events.</p>
+        <a class="btn" href="https://wa.me/639274761596" target="_blank" rel="noopener noreferrer">Message me on WhatsApp</a>
+      </div>
+    </section>
+
+    <section class="container section" id="prints" aria-labelledby="prints-title">
+      <h2 class="title grain" id="prints-title">Prints</h2>
+      <ul class="grid-12 cards-grid cards-grid--wide section__body">
+        <li>
+          <article class="info-card">
+            <img data-enlarge="print" data-zoom="assets/images/about/prints/zoom/trail.webp" data-zoom-size="1600x2000" data-zoom-name="“Trail” artwork" src="assets/images/about/prints/trail.webp" width="1066" height="1070" loading="lazy" alt="“Trail” print in a black frame">
+            <div class="info-card__body">
+              <p class="meta">PHP 6,000.00</p>
+              <h3 class="card-title">“Trail”</h3>
+              <p class="card-note">16” x 20” print on black frame</p>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="info-card">
+            <img data-enlarge="print" data-zoom="assets/images/about/prints/zoom/catstrail.webp" data-zoom-size="1600x2000" data-zoom-name="“Cats Trail” artwork" src="assets/images/about/prints/catstrail.webp" width="1070" height="1070" loading="lazy" alt="“Cats Trail” print in a black frame">
+            <div class="info-card__body">
+              <p class="meta meta--unavailable">UNAVAILABLE</p>
+              <h3 class="card-title">“Cats Trail”</h3>
+              <p class="card-note">16” x 20” print on black frame</p>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="info-card">
+            <img data-enlarge="print" data-zoom="assets/images/about/prints/zoom/cats.webp" data-zoom-size="1600x2000" data-zoom-name="“Cats” artwork" src="assets/images/about/prints/cats.webp" width="1066" height="1070" loading="lazy" alt="“Cats” print in a black frame">
+            <div class="info-card__body">
+              <p class="meta">PHP 6,000.00</p>
+              <h3 class="card-title">“Cats”</h3>
+              <p class="card-note">16” x 20” print on black frame</p>
+            </div>
+          </article>
+        </li>
+      </ul>
+      <div class="cta">
+        <p>Interested in buying my prints?</p>
+        <a class="btn" href="https://wa.me/639274761596" target="_blank" rel="noopener noreferrer">Message me on WhatsApp</a>
+      </div>
+    </section>
+
+    <section class="container section" id="tattoo" aria-labelledby="tattoo-title">
+      <h2 class="title grain" id="tattoo-title">Tattoo Flashes</h2>
+      <div class="grid-12 flash-sets section__body">
+        <div class="flash-set">
+          <img src="assets/images/about/tattoo/explore.webp" width="1070" height="1070" loading="lazy" alt="Exploratour exclusive flash sheet">
+          <div class="flash-small">
+          <img data-enlarge="tattoo" src="assets/images/about/tattoo/wander.webp" width="310" height="310" loading="lazy" alt="Wander tattoo flash design">
+          <img data-enlarge="tattoo" src="assets/images/about/tattoo/acknowledge.webp" width="310" height="310" loading="lazy" alt="Acknowledge tattoo flash design">
+          <img data-enlarge="tattoo" src="assets/images/about/tattoo/frolick.webp" width="310" height="310" loading="lazy" alt="Frolick tattoo flash design">
+          <img data-enlarge="tattoo" src="assets/images/about/tattoo/greet.webp" width="310" height="310" loading="lazy" alt="Greet tattoo flash design">
+          <img data-enlarge="tattoo" src="assets/images/about/tattoo/pose.webp" width="310" height="310" loading="lazy" alt="Pose tattoo flash design">
+          <img data-enlarge="tattoo" src="assets/images/about/tattoo/staygrounded.webp" width="310" height="310" loading="lazy" alt="Stay Grounded tattoo flash design">
+          </div>
+        </div>
+        <div class="flash-set">
+          <img src="assets/images/about/tattoo/bic.webp" width="1070" height="1070" loading="lazy" alt="Beauty in Chaos and Friends flash sheet">
+          <div class="flash-small">
+          <img data-enlarge="tattoo" src="assets/images/about/tattoo/bikedog.webp" width="310" height="310" loading="lazy" alt="Bikedog tattoo flash design">
+          <img data-enlarge="tattoo" src="assets/images/about/tattoo/scorpion.webp" width="310" height="310" loading="lazy" alt="Scorpion tattoo flash design">
+          <img data-enlarge="tattoo" src="assets/images/about/tattoo/kon.webp" width="310" height="310" loading="lazy" alt="Kon tattoo flash design">
+          <img data-enlarge="tattoo" src="assets/images/about/tattoo/catdog.webp" width="310" height="310" loading="lazy" alt="Catdog tattoo flash design">
+          <img data-enlarge="tattoo" src="assets/images/about/tattoo/catcam.webp" width="310" height="310" loading="lazy" alt="Catcam tattoo flash design">
+          <img data-enlarge="tattoo" src="assets/images/about/tattoo/catbox.webp" width="310" height="310" loading="lazy" alt="Catbox tattoo flash design">
+          </div>
+        </div>
+      </div>
+      <div class="cta">
+        <p>Repeatable flash designs, available for tattooing.<br>Interested in getting one?</p>
+        <a class="btn" href="https://www.instagram.com/norink__/" target="_blank" rel="noopener noreferrer">@norink__ on Instagram</a>
+      </div>
+    </section>
+
+    <section class="container section" id="music" aria-labelledby="music-title">
+      <h2 class="title grain" id="music-title">Music</h2>
+      <ul class="grid-12 cards-grid cards-grid--wide section__body">
+        <li>
+          <a class="info-card" href="https://www.youtube.com/watch?v=QGnnPsipi-s" target="_blank" rel="noopener noreferrer">
+            <img src="assets/images/about/music/sensitive.webp" width="1068" height="600" loading="lazy" alt="">
+            <span class="info-card__body">
+              <span class="meta" style="display:block">September 27, 2026</span>
+              <span class="card-title" style="display:block">Most Modern Blue - Sensitive | (Live at Offsite | Year One)</span>
+              <span class="card-note" style="display:block">OFFSITE, SE Ipil, Marikina</span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a class="info-card" href="https://www.youtube.com/watch?v=NXvQJmdJqW8&amp;t=9s" target="_blank" rel="noopener noreferrer">
+            <img src="assets/images/about/music/adults.webp" width="1068" height="600" loading="lazy" alt="">
+            <span class="info-card__body">
+              <span class="meta" style="display:block">June 2, 2026</span>
+              <span class="card-title" style="display:block">Modry - Modry (Live at Offsite | Nook Sessions)</span>
+              <span class="card-note" style="display:block">OFFSITE, SE Ipil, Marikina</span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a class="info-card" href="https://www.youtube.com/watch?v=us9iX6LErS4" target="_blank" rel="noopener noreferrer">
+            <img src="assets/images/about/music/mows.webp" width="1068" height="600" loading="lazy" alt="">
+            <span class="info-card__body">
+              <span class="meta" style="display:block">May 15, 2025</span>
+              <span class="card-title" style="display:block">Modry Modry at NAGSASAWA KA NA BA? (05.15.2025)</span>
+              <span class="card-note" style="display:block">Mow’s, Matalino, Quezon City</span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a class="info-card" href="https://www.youtube.com/watch?v=oAjjWpchHnQ" target="_blank" rel="noopener noreferrer">
+            <img src="assets/images/about/music/kissling.webp" width="1068" height="600" loading="lazy" alt="">
+            <span class="info-card__body">
+              <span class="meta" style="display:block">March 31, 2016</span>
+              <span class="card-title" style="display:block">KISSLING! - Full Set (Live at Road To Intramuros Rising 4)</span>
+              <span class="card-note" style="display:block">Saguijo, Guijo St, Makati City</span>
+            </span>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <section class="container section" id="video" aria-labelledby="video-title">
+      <h2 class="title grain" id="video-title">Video Edits</h2>
+      <ul class="grid-12 videos section__body">
+        <li><a class="video-tile" href="https://www.instagram.com/reel/DW8eJ8cPJhf/" target="_blank" rel="noopener noreferrer" aria-label="Watch video edit 1 of 8 on Instagram"><img data-preview="assets/images/about/videos/preview/quinao" src="assets/images/about/videos/quinao.webp" width="498" height="684" loading="lazy" alt=""></a></li>
+        <li><a class="video-tile" href="https://www.instagram.com/reel/DVXuOgjkuoI/" target="_blank" rel="noopener noreferrer" aria-label="Watch video edit 2 of 8 on Instagram"><img data-preview="assets/images/about/videos/preview/pandesal" src="assets/images/about/videos/pandesal.webp" width="498" height="684" loading="lazy" alt=""></a></li>
+        <li><a class="video-tile" href="https://www.instagram.com/reel/DPm04Ysj1s1/" target="_blank" rel="noopener noreferrer" aria-label="Watch video edit 3 of 8 on Instagram"><img data-preview="assets/images/about/videos/preview/romelo" src="assets/images/about/videos/romelo.webp" width="498" height="684" loading="lazy" alt=""></a></li>
+        <li><a class="video-tile" href="https://www.instagram.com/reel/DdyP4G3PT68/" target="_blank" rel="noopener noreferrer" aria-label="Watch video edit 4 of 8 on Instagram"><img data-preview="assets/images/about/videos/preview/coffeeoutside" src="assets/images/about/videos/coffeeoutside.webp" width="498" height="684" loading="lazy" alt=""></a></li>
+        <li><a class="video-tile" href="https://www.instagram.com/p/DOiZuFsEnn0/" target="_blank" rel="noopener noreferrer" aria-label="Watch video edit 5 of 8 on Instagram"><img data-preview="assets/images/about/videos/preview/explotrailer" src="assets/images/about/videos/explotrailer.webp" width="498" height="684" loading="lazy" alt=""></a></li>
+        <li><a class="video-tile" href="https://www.instagram.com/p/DLQGDTBPOIZ/" target="_blank" rel="noopener noreferrer" aria-label="Watch video edit 6 of 8 on Instagram"><img data-preview="assets/images/about/videos/preview/swift2025" src="assets/images/about/videos/swift2025.webp" width="498" height="684" loading="lazy" alt=""></a></li>
+        <li><a class="video-tile" href="https://www.instagram.com/p/DKEqmwdP7LN/" target="_blank" rel="noopener noreferrer" aria-label="Watch video edit 7 of 8 on Instagram"><img data-preview="assets/images/about/videos/preview/rtd" src="assets/images/about/videos/rtd.webp" width="498" height="684" loading="lazy" alt=""></a></li>
+        <li><a class="video-tile" href="https://www.instagram.com/reel/DW1e5kFjjSZ/" target="_blank" rel="noopener noreferrer" aria-label="Watch video edit 8 of 8 on Instagram"><img data-preview="assets/images/about/videos/preview/tusok" src="assets/images/about/videos/tusok.webp" width="498" height="684" loading="lazy" alt=""></a></li>
+      </ul>
+      <div class="cta cta--compact">
+        <p>Send me a love letter.</p>
+        <a class="btn" href="contact.html">Get in touch</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer container">
+    <p>Copyright © 2026<br>Made by Markuss Javier</p>
+    <p class="site-footer__right">Designed in Figma,<br>Hosted on GitHub.</p>
+  </footer>
+  <script src="js/enlarge.js"></script>
+  <script src="js/print-zoom.js"></script>
+  <script src="js/video-preview.js"></script>
+  <script src="js/touch.js"></script>
+</body>
+</html>
